@@ -27,6 +27,6 @@ Use the highest numbered beta unless you are deliberately investigating a histor
 
 Use Windows Settings > Apps to uninstall Afaan Oromo Bible Beta. Back up records you want to retain first. Uninstalling must not be treated as a guaranteed personal-data erasure procedure; see [privacy](PRIVACY.md).
 
-## Other platforms
+## Experimental macOS and Ubuntu packages
 
-macOS and Linux are development targets. There are no qualified public packages for them in these beta releases.
+Beta.8 includes separate Apple silicon/Intel Mac DMGs and an Ubuntu 24.04 x64 Debian package. These are experimental testing downloads, not qualified platform releases. See the [platform selection, checksum, installation and testing guide](TESTING_GUIDE.md). Mac builds are ad-hoc signed without Developer ID/notarization; Linux packages have no release-key signature.

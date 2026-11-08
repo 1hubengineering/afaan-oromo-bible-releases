@@ -1,8 +1,10 @@
 # Changelog
 
-All listed versions are Windows x64 development prereleases. Historical downloads are retained for reference; beta.8 is recommended. Local build dates are not implied by the date these files were uploaded to GitHub.
+Beta.1–beta.7 are Windows x64 development prereleases. Beta.8 additionally offers experimental Apple silicon/Intel Mac and Ubuntu 24.04 x64 downloads. Historical downloads are retained for reference; beta.8 is recommended. Local build dates are not implied by the date these files were uploaded to GitHub.
 
 ## 0.1.0-beta.8
+
+Experimental platform testing addition: native Mac DMGs and an Ubuntu Debian package, with bundled native dependency license supplements, checksums and a [device testing/feedback guide](TESTING_GUIDE.md). Mac builds are ad-hoc signed and unnotarized; Linux has no release-key signature. Full device/accessibility/clean-host qualification and two known browser checks remain open. The existing Windows installer is unchanged.
 
 The 2026-11-08 refresh highlights wrapped Scripture text and places circular color swatches, Add note, Bookmark, Copy and More beneath the selected range. More retains remove-highlight, range extension and clearing. Comparison annotations stay in their own edition. The refresh also includes aligned toolbar controls, an outlined Settings gear and five coordinated palettes with separate Light/Dark/System appearance. The version and installer filename remain beta.8.
 

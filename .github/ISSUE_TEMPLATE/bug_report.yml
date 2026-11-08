@@ -14,7 +14,8 @@ body:
   - type: input
     id: environment
     attributes:
-      label: Windows version and architecture
+      label: Operating system, version and architecture
+      description: Include Apple silicon/Intel for Mac; distribution, desktop and X11/Wayland for Linux.
     validations:
       required: true
   - type: textarea

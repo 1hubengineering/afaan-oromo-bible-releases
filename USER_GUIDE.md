@@ -14,6 +14,14 @@ Select verses to use available bookmark, highlight and note actions. Notes and b
 
 The note editor supports the provided formatting and local Scripture insertion controls. Export an individual note as Markdown, Word or PDF using its export action. Exported notes are separate from a complete personal-data backup. Required Scripture notices accompany supported exports.
 
+## Highlight a passage
+
+Select a verse number, drag across Scripture text, or extend a selected range. Highlights follow the verse text across wrapped lines. The small highlighter mark beside its number identifies a saved highlight.
+
+The toolbar beneath the selection contains Yellow, Green, Blue and Rose swatches, followed by Add note, Bookmark, Copy and More. The active color is outlined. Use More to remove the selected highlights, extend the range or clear the selection. Keyboard users can open More with Enter, move through its actions with Tab and close it with Escape. Clearing returns focus to the selected verse.
+
+In comparison reading, each pane keeps its own selection and highlights. Its Add note and Bookmark actions retain that edition's reference; changing or removing its color leaves the other edition unchanged. Copy includes the selected edition's reference and source notice. Adding a note inserts Scripture text without automatically appending a reference or copyright paragraph; application-level and export notices remain available.
+
 ## Backups
 
 Use the app's backup controls to export a JSON backup of personal records. The backup does not bundle the immutable installed Scripture library; deliberately inserted quotations remain part of authored notes. Keep the file private because it contains personal writing.
@@ -22,4 +30,4 @@ Restoring a backup replaces current personal records after validation and confir
 
 ## Appearance and source information
 
-Reading preferences include text and appearance controls. About provides installed edition, copyright and license information. Bible-edition licensing is separate from software and personal-note ownership.
+Reading preferences separates Color palette from Appearance. Classic, Sepia, Midnight, Forest and Plum each have coordinated Light/Dark variants. Choose Light, Dark or Follow system independently; the homepage sun/moon toggle changes only appearance and keeps the palette. Both choices are remembered. Text size and line spacing remain adjustable. About provides installed edition, copyright and license information. Bible-edition licensing is separate from software and personal-note ownership.

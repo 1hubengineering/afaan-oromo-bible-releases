@@ -11,9 +11,10 @@ An independent desktop Bible reader with offline Scripture, search and personal 
 - Read gaz 2022 (Western Oromo), OOCS 2024 and KJV locally.
 - Compare editions by book and chapter; chapter correspondence does not establish verse-by-verse equivalence.
 - Search within an edition, narrow by book or testament, and navigate numbered result pages.
-- Save bookmarks, highlights and personal notes; export individual notes as Markdown, Word or PDF.
+- Highlight wrapped Scripture text and use its contextual color/note/bookmark/copy toolbar independently in either reading pane.
+- Save bookmarks and personal notes; export individual notes as Markdown, Word or PDF.
 - Export and restore a JSON backup of personal records.
-- Choose an Afaan Oromo or English interface and Light, Dark, System, Sepia or Midnight appearance.
+- Choose an Afaan Oromo or English interface. Select Classic, Sepia, Midnight, Forest or Plum independently of Light, Dark or Follow system appearance.
 
 NIV and the planned 1997 Afaan Oromo edition are unavailable. Disabled selector entries explain availability; their texts are not bundled.
 

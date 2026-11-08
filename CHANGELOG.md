@@ -4,6 +4,8 @@ All listed versions are Windows x64 development prereleases. Historical download
 
 ## 0.1.0-beta.8
 
+The 2026-11-08 refresh highlights wrapped Scripture text and places circular color swatches, Add note, Bookmark, Copy and More beneath the selected range. More retains remove-highlight, range extension and clearing. Comparison annotations stay in their own edition. The refresh also includes aligned toolbar controls, an outlined Settings gear and five coordinated palettes with separate Light/Dark/System appearance. The version and installer filename remain beta.8.
+
 Corrected duplicate and comparison version selectors. The final local beta.8 toolbar update removes the Read Bible mode icon, makes Notes/Bookmarks toggle back to reading, and adds the persistent EN/OR interface toggle. Includes the beta.7 reader and themes.
 
 [Download and verification files](https://github.com/1hubengineering/afaan-oromo-bible-releases/releases/tag/v0.1.0-beta.8).

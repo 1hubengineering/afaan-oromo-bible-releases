@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a security vulnerability privately
+    url: https://github.com/1hubengineering/afaan-oromo-bible-releases/security/advisories/new
+    about: Keep vulnerabilities and sensitive information out of public issues.

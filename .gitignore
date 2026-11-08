@@ -1,0 +1,10 @@
+*.exe
+*.msi
+*.dmg
+*.deb
+*.zip
+.env
+.env.*
+*.sqlite
+*.db
+*.backup.json

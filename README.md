@@ -1,6 +1,6 @@
 # Afaan Oromo Bible
 
-[Visit the website](https://1hubengineering.github.io/afaan-oromo-bible-releases/) · [Afaan Oromoo](https://1hubengineering.github.io/afaan-oromo-bible-releases/om/)
+[Visit the website](https://bible.1hubengineering.com/) · [Afaan Oromoo](https://bible.1hubengineering.com/om/)
 
 An independent desktop Bible reader with offline Scripture, search and personal study tools.
 

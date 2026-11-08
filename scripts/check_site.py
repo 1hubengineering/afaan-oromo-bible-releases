@@ -14,8 +14,10 @@ from html.parser import HTMLParser
 import json
 from pathlib import Path
 import re
+import struct
 import sys
 from urllib.parse import unquote, urlsplit
+import xml.etree.ElementTree as ET
 
 from prepare_site import PROJECT_ROOT, is_public_file, normalize_site_url
 
@@ -157,6 +159,8 @@ def validate_page(parser: SiteParser, page: Path, directory: Path,
                  "og:url", "og:image", "og:locale", "twitter:card", "twitter:image"):
         if not parser.metadata.get(name):
             errors.append(f"Required metadata is missing or empty: {name}")
+    if parser.metadata.get("robots") != "index, follow, max-image-preview:large":
+        errors.append("Expected the explicit crawlable robots and large-image preview policy")
     canonical = parser.canonical or ""
     try:
         if normalize_site_url(canonical) != canonical:
@@ -169,6 +173,11 @@ def validate_page(parser: SiteParser, page: Path, directory: Path,
     expected_locale = "om_ET" if expected_language == "om" else "en_US"
     if parser.metadata.get("og:locale") != expected_locale:
         errors.append(f"og:locale must identify this page as {expected_locale}")
+    alternate_locale = "en_US" if expected_language == "om" else "om_ET"
+    if parser.metadata.get("og:locale:alternate") != alternate_locale:
+        errors.append("Social metadata must identify the other language page")
+    if (parser.metadata.get("og:image:width"), parser.metadata.get("og:image:height")) != ("1280", "640"):
+        errors.append("Social metadata must use the sharing card's 1280 by 640 dimensions")
     expected_alternates = {"en": site_url, "om": site_url + "om/", "x-default": site_url}
     for language, url in expected_alternates.items():
         if parser.alternates.get(language) != url:
@@ -181,10 +190,32 @@ def validate_page(parser: SiteParser, page: Path, directory: Path,
             check_local_url(value[len(site_url):], directory, context=name, errors=errors)
         else:
             errors.append(f"{name} must use an absolute image URL under the root site URL")
+    if len(parser.json_ld) != 1:
+        errors.append("Expected one static structured-data graph")
     for content in parser.json_ld:
         try:
-            json.loads(content)
-        except json.JSONDecodeError as exc:
+            data = json.loads(content)
+            graph = data.get("@graph", [])
+            nodes = {node.get("@type"): node for node in graph if isinstance(node, dict)}
+            if data.get("@context") != "https://schema.org" or set(nodes) != {
+                "Organization", "WebSite", "WebPage", "SoftwareApplication"
+            }:
+                errors.append("Structured data must identify the organization, website, page and application")
+            else:
+                web_page, app = nodes["WebPage"], nodes["SoftwareApplication"]
+                if web_page.get("url") != canonical or web_page.get("inLanguage") != expected_language:
+                    errors.append("Structured page URL/language does not match the HTML")
+                if web_page.get("description") != parser.metadata.get("description"):
+                    errors.append("Structured page description must match the localized visible metadata")
+                if nodes["WebSite"].get("url") != site_url or app.get("url") != site_url:
+                    errors.append("Structured website/application URLs must use the canonical root")
+                if app.get("softwareVersion") != "0.1.0-beta.8" or app.get("downloadUrl") != RELEASE:
+                    errors.append("Structured application release does not match the reviewed beta")
+                if not all("beta" in system for system in app.get("operatingSystem", [])):
+                    errors.append("Structured operating-system metadata must retain beta scope")
+                if any(field in app for field in ("aggregateRating", "review", "offers", "accessibilityConformance")):
+                    errors.append("Ratings, pricing and conformance claims require separate reviewed evidence")
+        except (json.JSONDecodeError, AttributeError, TypeError) as exc:
             errors.append(f"Invalid structured-data JSON: {exc}")
 
     ids = set(parser.ids)
@@ -225,7 +256,7 @@ def validate_page(parser: SiteParser, page: Path, directory: Path,
     for url in links:
         if urlsplit(url).path.lower().endswith(installer_suffixes) and url not in REQUIRED_DOWNLOADS:
             errors.append(f"Installer link is not in the verified beta.8 inventory: {url}")
-    for document in ("INSTALLATION.md", "TESTING_GUIDE.md", "LICENSING.md", "PRIVACY.md", "SECURITY.md"):
+    for document in ("INSTALLATION.md", "TESTING_GUIDE.md", "LICENSING.md", "PRIVACY.md", "SECURITY.md", "ACCESSIBILITY.md"):
         expected = f"{REPOSITORY}/blob/main/{document}"
         if expected not in links:
             errors.append(f"Missing public documentation link: {document}")
@@ -237,6 +268,41 @@ def validate_page(parser: SiteParser, page: Path, directory: Path,
         errors.append("Missing issue-reporting link")
 
     return [f"{page.relative_to(directory)}: {error}" for error in errors]
+
+
+def validate_discovery(directory: Path, site_url: str) -> list[str]:
+    errors: list[str] = []
+    try:
+        image = (directory / "assets/images/social-preview.png").read_bytes()
+        if (image[:8] != b"\x89PNG\r\n\x1a\n" or len(image) < 24
+                or struct.unpack(">II", image[16:24]) != (1280, 640) or len(image) >= 1_000_000):
+            errors.append("Sharing card must be a 1280 by 640 PNG under 1 MB")
+    except OSError as exc:
+        errors.append(f"Sharing card is unavailable: {exc}")
+    robots = directory / "robots.txt"
+    if not robots.is_file():
+        errors.append("Missing robots.txt")
+    else:
+        lines = {line.strip() for line in robots.read_text(encoding="utf-8").splitlines() if line.strip()}
+        required = {"User-agent: *", "Allow: /", "Sitemap: " + site_url + "sitemap.xml"}
+        if lines != required:
+            errors.append("robots.txt must allow crawling and advertise the canonical sitemap")
+    try:
+        sitemap = ET.parse(directory / "sitemap.xml").getroot()
+        namespace = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9", "x": "http://www.w3.org/1999/xhtml"}
+        expected = {"en": site_url, "om": site_url + "om/", "x-default": site_url}
+        entries = sitemap.findall("s:url", namespace)
+        locations = [entry.findtext("s:loc", namespaces=namespace) for entry in entries]
+        if len(entries) != 2 or set(locations) != {site_url, site_url + "om/"}:
+            errors.append("Sitemap must contain exactly the two canonical language pages")
+        for entry in entries:
+            alternatives = {link.get("hreflang"): link.get("href") for link in entry.findall("x:link", namespace)
+                            if link.get("rel") == "alternate"}
+            if alternatives != expected:
+                errors.append("Every sitemap page must identify both language alternates and x-default")
+    except (OSError, ET.ParseError) as exc:
+        errors.append(f"Missing or invalid sitemap: {exc}")
+    return errors
 
 
 def validate(directory: Path) -> list[str]:
@@ -254,6 +320,7 @@ def validate(directory: Path) -> list[str]:
     for name, parser in pages.items():
         language = "om" if name.startswith("om/") else "en"
         errors.extend(validate_page(parser, directory / name, directory, language, site_url))
+    errors.extend(validate_discovery(directory, site_url))
 
     for item in sorted(directory.rglob("*")):
         relative = item.relative_to(directory)

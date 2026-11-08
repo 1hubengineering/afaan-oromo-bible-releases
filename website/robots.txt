@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://1hubengineering.github.io/afaan-oromo-bible-releases/sitemap.xml

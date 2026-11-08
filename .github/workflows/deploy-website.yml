@@ -6,6 +6,8 @@ on:
     paths:
       - 'website/**'
       - 'scripts/prepare_site.py'
+      - 'scripts/site_metadata.py'
+      - 'scripts/test_site_metadata.py'
       - 'scripts/check_site.py'
       - 'scripts/localize_site.py'
       - 'website-docs/oromo-translations.json'
@@ -15,6 +17,8 @@ on:
     paths:
       - 'website/**'
       - 'scripts/prepare_site.py'
+      - 'scripts/site_metadata.py'
+      - 'scripts/test_site_metadata.py'
       - 'scripts/check_site.py'
       - 'scripts/localize_site.py'
       - 'website-docs/oromo-translations.json'
@@ -51,6 +55,9 @@ jobs:
 
       - name: Check the committed Afaan Oromo page
         run: python3 scripts/localize_site.py --check
+
+      - name: Test localized structured metadata
+        run: python3 -m unittest discover -s scripts -p 'test_site_metadata.py'
 
       - name: Stage only the website
         env:

@@ -17,6 +17,8 @@ Copy these additions into the root of the existing `1hubengineering/afaan-oromo-
 | `.github/workflows/deploy-website.yml` | Validation and GitHub Pages deployment. |
 | `scripts/prepare_site.py` | Copies only allowed website files into a publication directory. |
 | `scripts/check_site.py` | Checks local assets, anchor targets, metadata and the beta.8 download inventory. |
+| `scripts/site_metadata.py`, `scripts/test_site_metadata.py` | Static localized search/schema metadata and integrity tests. |
+| `website/robots.txt`, `website/sitemap.xml` | Crawl policy and reciprocal English/Oromo discovery URLs. |
 | `scripts/localize_site.py` | Maintains the committed static Afaan Oromo page from the English page and translation catalog. |
 | `website-docs/` | Website documentation and `oromo-translations.json`; not deployed. |
 
@@ -54,7 +56,7 @@ python3 scripts/prepare_site.py
 python3 scripts/check_site.py _site
 ```
 
-The localization check verifies that the committed Oromo page matches the current English source and translation catalog. The preparer then rejects symbolic links and unexpected files and recreates `_site/` from `website/`. Only explicit website file types, `om/index.html` and approved asset paths are published. It does not copy the repository root, app source, guides, translation catalog, installers or personal data. If a new type of public asset is needed, deliberately update the allowlist in `prepare_site.py`.
+The localization check verifies that the committed Oromo page matches the current English source and translation catalog. The preparer rejects symbolic links and unexpected files, recreates `_site/` from `website/`, and injects static localized JSON-LD into the prepared HTML. Crawl files and all metadata use the configured HTTPS site URL. Only explicit website file types, `om/index.html` and approved asset paths are published. It does not copy the repository root, app source, guides, translation catalog, installers or personal data. If a new type of public asset is needed, deliberately update the allowlist in `prepare_site.py`. See [SEO.md](SEO.md) for topics, metadata, sharing artwork and search-engine verification, and [the accessibility statement](../ACCESSIBILITY.md) for user guidance.
 
 ### Preview at the GitHub project path
 

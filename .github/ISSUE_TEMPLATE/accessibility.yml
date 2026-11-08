@@ -1,0 +1,37 @@
+name: Accessibility barrier
+description: Report a barrier using the website or desktop reader.
+title: "[Accessibility] "
+labels: [accessibility]
+body:
+  - type: markdown
+    attributes:
+      value: "Issues are public. Remove personal data from screenshots and use synthetic notes. Do not attach backups, credentials or private records. You can also contact info@1hubengineering.com."
+  - type: dropdown
+    id: product
+    attributes:
+      label: Where did the barrier occur?
+      options:
+        - Product website
+        - Windows beta reader
+        - Experimental macOS reader
+        - Experimental Ubuntu reader
+    validations:
+      required: true
+  - type: input
+    id: location
+    attributes:
+      label: Page URL or application version
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Browser, operating system and assistive technology
+      description: Include versions when known; assistive technology details are optional.
+  - type: textarea
+    id: barrier
+    attributes:
+      label: Task, steps and barrier
+      description: Explain what you tried, the steps taken, the result and what would help you complete the task.
+    validations:
+      required: true

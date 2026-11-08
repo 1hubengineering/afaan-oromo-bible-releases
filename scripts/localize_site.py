@@ -108,6 +108,8 @@ def localized_html() -> str:
     source = ''.join(parser.output)
 
     source = source.replace('<html lang="en"', '<html lang="om"')
+    source = source.replace('property="og:locale:alternate" content="om_ET"',
+                            'property="og:locale:alternate" content="en_US"')
     source = source.replace('property="og:locale" content="en_US"',
                             'property="og:locale" content="om_ET"')
     source = source.replace(f'rel="canonical" href="{BASE_URL}"',

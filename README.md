@@ -2,7 +2,9 @@
 
 [Visit the website](https://bible.1hubengineering.com/) · [Afaan Oromoo](https://bible.1hubengineering.com/om/)
 
-An independent desktop Bible reader with offline Scripture, search and personal study tools.
+[![Afaan Oromo Bible offline reader with an authentic app screenshot and beta download information](website/assets/images/social-preview.png)](https://bible.1hubengineering.com/)
+
+Afaan Oromo Bible is an independent offline Bible reader for Afaan Oromoo (Oromo), with Scripture search, side-by-side Bible comparison, bookmarks and personal study notes.
 
 **Public beta. Recommended Windows version: 0.1.0-beta.8. Experimental Mac and Ubuntu downloads are available for testing.** These are development builds, not the final V1 release. Back up useful notes before installing or changing versions.
 
@@ -39,3 +41,9 @@ Historical beta.1–beta.7 downloads are retained for reference; use beta.8 for 
 See [troubleshooting and bug reports](SUPPORT.md), [security reporting](SECURITY.md), [privacy](PRIVACY.md), [licensing](LICENSING.md), and [third-party notices](THIRD_PARTY_NOTICES.md).
 
 This is an independent project. No Bible publisher or Bible Society affiliation or endorsement is claimed.
+
+## Accessibility and discoverability
+
+Read the [website accessibility statement](ACCESSIBILITY.md) or [report an accessibility barrier](https://github.com/1hubengineering/afaan-oromo-bible-releases/issues/new?template=accessibility.yml). The website supports English and Afaan Oromoo, keyboard navigation, text enlargement, light/dark appearance and reduced motion. Desktop application accessibility qualification is separate from website checks.
+
+For maintainers, [search and sharing metadata](website-docs/SEO.md) documents repository topics, the sitemap, structured data and search-engine verification/submission steps. Search indexing and ranking are determined by search engines.

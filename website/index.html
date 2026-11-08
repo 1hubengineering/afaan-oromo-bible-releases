@@ -5,9 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#f8f6ef">
-  <title>Afaan Oromo Bible — A quiet space to read and study offline</title>
-  <meta name="description" content="Read Afaan Oromo Scripture offline. Search, compare local editions, highlight passages and keep personal notes. Download the independent desktop reader’s public beta.">
+  <title>Afaan Oromo Bible — Offline Reader and Beta Downloads</title>
+  <meta name="description" content="Read the Afaan Oromo Bible offline. Search, compare editions and save study notes. Windows beta plus experimental macOS and Ubuntu downloads.">
   <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="AndHub Engineering">
   <link rel="canonical" href="https://1hubengineering.github.io/afaan-oromo-bible-releases/">
   <link rel="alternate" hreflang="en" href="https://1hubengineering.github.io/afaan-oromo-bible-releases/">
   <link rel="alternate" hreflang="om" href="https://1hubengineering.github.io/afaan-oromo-bible-releases/om/">
@@ -15,20 +17,21 @@
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="om_ET">
   <meta property="og:site_name" content="Afaan Oromo Bible">
-  <meta property="og:title" content="Scripture in Afaan Oromo. A quiet space to study.">
+  <meta property="og:title" content="Afaan Oromo Bible — Read and study offline">
   <meta property="og:description" content="An independent desktop Bible reader for offline Scripture reading and personal study. Explore the reader and download beta.8.">
   <meta property="og:url" content="https://1hubengineering.github.io/afaan-oromo-bible-releases/">
   <meta property="og:image" content="https://1hubengineering.github.io/afaan-oromo-bible-releases/assets/images/social-preview.png">
   <meta property="og:image:type" content="image/png">
-  <meta property="og:image:width" content="1920">
-  <meta property="og:image:height" content="1094">
-  <meta property="og:image:alt" content="The actual Afaan Oromo Bible desktop reader, showing Scripture and verse highlighting in its Classic light palette.">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="640">
+  <meta property="og:image:alt" content="Afaan Oromo Bible offline reader, with an authentic app screenshot and beta download information.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Afaan Oromo Bible — Read and study offline">
   <meta name="twitter:description" content="Scripture, search, comparison and your own reflections. A quiet desktop reading space.">
   <meta name="twitter:image" content="https://1hubengineering.github.io/afaan-oromo-bible-releases/assets/images/social-preview.png">
-  <meta name="twitter:image:alt" content="An authentic screenshot of the Afaan Oromo Bible desktop reader in the Classic light palette.">
+  <meta name="twitter:image:alt" content="Afaan Oromo Bible offline reader, with an authentic app screenshot and beta download information.">
   <script src="./theme.js"></script>
   <link rel="stylesheet" href="./styles.css">
   <script src="./app.js" defer></script>
@@ -88,7 +91,7 @@
     </div>
   </header>
 
-  <main id="main">
+  <main id="main" tabindex="-1">
     <section class="hero container" aria-labelledby="hero-title">
       <div class="hero-copy">
         <a class="beta-label" href="https://github.com/1hubengineering/afaan-oromo-bible-releases/releases/tag/v0.1.0-beta.8"><span class="status-dot" aria-hidden="true"></span><span data-i18n="hero.beta">A growing project · Public beta.8</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
@@ -140,22 +143,22 @@
           <button type="button" role="tab" id="tab-bookmarks" aria-controls="panel-bookmarks" aria-selected="false" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg><span data-i18n="gallery.tabs.bookmarks">Bookmarks</span></button>
         </div>
         <div class="gallery-panels">
-          <figure class="gallery-panel" id="panel-compare" aria-labelledby="tab-compare">
+          <div class="gallery-panel" role="group" id="panel-compare" aria-labelledby="tab-compare"><figure>
             <div class="screenshot-frame"><a class="screenshot-link" href="./assets/images/compare-sepia.webp" data-lightbox data-caption="Side-by-side Oromo and KJV reading · Sepia / Light. Comparison follows book and chapter; it does not establish reviewed verse-by-verse alignment." aria-label="Enlarge the side-by-side comparison screenshot"><img src="./assets/images/compare-sepia.webp" srcset="./assets/images/compare-sepia-960.webp 960w, ./assets/images/compare-sepia.webp 1920w" sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1279px) calc(100vw - 80px), 1200px" width="1920" height="1094" loading="lazy" decoding="async" alt="Two reading panes in the warm Sepia palette, showing Matthew chapter 2 in gaz Afaan Oromo on the left and King James English on the right."><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg><span>Enlarge</span></span></a></div>
             <figcaption><div><strong data-i18n="gallery.compare.title">Two editions. Room to explore.</strong><p data-i18n="gallery.compare.caption">Read Oromo and KJV side by side. Comparison follows book and chapter; verse numbering and wording may differ between editions.</p></div><span class="palette-label"><i class="palette-swatch swatch-sepia" aria-hidden="true"></i>Sepia / Light</span></figcaption>
-          </figure>
-          <figure class="gallery-panel" id="panel-notes" aria-labelledby="tab-notes">
+          </figure></div>
+          <div class="gallery-panel" role="group" id="panel-notes" aria-labelledby="tab-notes"><figure>
             <div class="screenshot-frame"><a class="screenshot-link" href="./assets/images/notes-forest.webp" data-lightbox data-caption="A verse-linked study note · Forest / Light. All writing shown is illustrative demo content from an isolated profile." aria-label="Enlarge the personal notes screenshot"><img src="./assets/images/notes-forest.webp" srcset="./assets/images/notes-forest-960.webp 960w, ./assets/images/notes-forest.webp 1920w" sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1279px) calc(100vw - 80px), 1200px" width="1920" height="1094" loading="lazy" decoding="async" alt="Forest light appearance with an illustrative Matthew 2 study note open beside the Scripture, showing text-formatting controls and a linked passage."><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg><span>Enlarge</span></span></a></div>
             <figcaption><div><strong data-i18n="gallery.notes.title">Give your thoughts a place to stay.</strong><p data-i18n="gallery.notes.caption">Write and format a note while the passage stays in view. The note shown here is illustrative demo content, not a personal record.</p></div><span class="palette-label"><i class="palette-swatch swatch-forest" aria-hidden="true"></i>Forest / Light</span></figcaption>
-          </figure>
-          <figure class="gallery-panel" id="panel-dark" aria-labelledby="tab-dark">
+          </figure></div>
+          <div class="gallery-panel" role="group" id="panel-dark" aria-labelledby="tab-dark"><figure>
             <div class="screenshot-frame"><a class="screenshot-link" href="./assets/images/compare-midnight.webp" data-lightbox data-caption="Side-by-side reading · Midnight / Dark. Each of the five app palettes supports independent light, dark or system appearance." aria-label="Enlarge the dark appearance screenshot"><img src="./assets/images/compare-midnight.webp" srcset="./assets/images/compare-midnight-960.webp 960w, ./assets/images/compare-midnight.webp 1920w" sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1279px) calc(100vw - 80px), 1200px" width="1920" height="1094" loading="lazy" decoding="async" alt="Oromo and KJV comparison in Midnight dark appearance, with pale Scripture text on deep navy reading panes and a rose verse highlight."><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg><span>Enlarge</span></span></a></div>
             <figcaption><div><strong data-i18n="gallery.dark.title">Let the page meet the moment.</strong><p data-i18n="gallery.dark.caption">Five palettes, each with light, dark or system appearance. Adjust Scripture size, spacing and reading width to find your comfortable rhythm.</p></div><span class="palette-label"><i class="palette-swatch swatch-midnight" aria-hidden="true"></i>Midnight / Dark</span></figcaption>
-          </figure>
-          <figure class="gallery-panel" id="panel-bookmarks" aria-labelledby="tab-bookmarks">
+          </figure></div>
+          <div class="gallery-panel" role="group" id="panel-bookmarks" aria-labelledby="tab-bookmarks"><figure>
             <div class="screenshot-frame"><a class="screenshot-link" href="./assets/images/bookmarks-plum.webp" data-lightbox data-caption="Saved passage bookmarks · Plum / Dark. Bookmark labels shown are illustrative demo content, not personal records." aria-label="Enlarge the bookmarks screenshot"><img src="./assets/images/bookmarks-plum.webp" srcset="./assets/images/bookmarks-plum-960.webp 960w, ./assets/images/bookmarks-plum.webp 1920w" sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1279px) calc(100vw - 80px), 1200px" width="1920" height="1094" loading="lazy" decoding="async" alt="The Plum dark reading palette with a bookmarks sidebar containing three clearly labeled demo bookmarks for Matthew 2, Romans 8 and Psalm 23."><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg><span>Enlarge</span></span></a></div>
             <figcaption><div><strong data-i18n="gallery.bookmarks.title">Return to what speaks to you.</strong><p data-i18n="gallery.bookmarks.caption">Give saved passages a useful label and return when you’re ready. These bookmark labels are illustrative demo content.</p></div><span class="palette-label"><i class="palette-swatch swatch-plum" aria-hidden="true"></i>Plum / Dark</span></figcaption>
-          </figure>
+          </figure></div>
         </div>
         <p class="gallery-provenance" data-i18n="gallery.provenance">Authentic screenshots of the Windows beta.8 app, captured in an isolated demo profile.</p>
       </div>
@@ -236,7 +239,7 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container"><div class="footer-top"><a class="brand" href="#top" aria-label="Afaan Oromo Bible home"><span class="brand-mark"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg></span><span class="brand-name">Afaan Oromo<span>BIBLE READER</span></span></a><p data-i18n="footer.tagline">Scripture in your language.<br>A space for your study.</p><nav aria-label="Project resources"><a href="https://github.com/1hubengineering/afaan-oromo-bible-releases/blob/main/LICENSING.md">Licensing</a><a href="https://github.com/1hubengineering/afaan-oromo-bible-releases/blob/main/PRIVACY.md">Privacy</a><a href="https://github.com/1hubengineering/afaan-oromo-bible-releases/blob/main/SECURITY.md">Security</a><a href="https://github.com/1hubengineering/afaan-oromo-bible-releases">GitHub</a><a href="https://github.com/1hubengineering/afaan-oromo-bible-releases/issues/new?template=bug_report.yml">Report an issue</a></nav></div><div class="footer-bottom"><p data-i18n="footer.independence">An independent project for reading and personal study. No publisher or Bible Society affiliation or endorsement is implied.</p><a href="https://github.com/1hubengineering/afaan-oromo-bible-releases/blob/main/THIRD_PARTY_NOTICES.md">Resource &amp; third-party notices ↗</a></div><p class="site-privacy" data-i18n="footer.sitePrivacy">This website uses no analytics or tracking. Your appearance preference is saved only in this browser. GitHub hosts the page and downloads.</p></div>
+    <div class="container"><div class="footer-top"><a class="brand" href="#top" aria-label="Afaan Oromo Bible home"><span class="brand-mark"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg></span><span class="brand-name">Afaan Oromo<span>BIBLE READER</span></span></a><p data-i18n="footer.tagline">Scripture in your language.<br>A space for your study.</p><nav aria-label="Project resources"><a href="https://github.com/1hubengineering/afaan-oromo-bible-releases/blob/main/LICENSING.md">Licensing</a><a href="https://github.com/1hubengineering/afaan-oromo-bible-releases/blob/main/PRIVACY.md">Privacy</a><a href="https://github.com/1hubengineering/afaan-oromo-bible-releases/blob/main/ACCESSIBILITY.md">Accessibility</a><a href="https://github.com/1hubengineering/afaan-oromo-bible-releases/blob/main/SECURITY.md">Security</a><a href="https://github.com/1hubengineering/afaan-oromo-bible-releases">GitHub</a><a href="https://github.com/1hubengineering/afaan-oromo-bible-releases/issues/new?template=bug_report.yml">Report an issue</a></nav></div><div class="footer-bottom"><p data-i18n="footer.independence">An independent project for reading and personal study. No publisher or Bible Society affiliation or endorsement is implied.</p><a href="https://github.com/1hubengineering/afaan-oromo-bible-releases/blob/main/THIRD_PARTY_NOTICES.md">Resource &amp; third-party notices ↗</a></div><p class="site-privacy" data-i18n="footer.sitePrivacy">This website uses no analytics or tracking. Your appearance preference is saved only in this browser. GitHub hosts the page and downloads.</p></div>
   </footer>
 
   <dialog class="image-dialog" aria-labelledby="dialog-title">

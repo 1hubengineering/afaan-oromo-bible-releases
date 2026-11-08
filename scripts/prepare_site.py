@@ -10,6 +10,8 @@ import shutil
 import sys
 from urllib.parse import urlsplit
 
+from site_metadata import inject_structured_data
+
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 SOURCE = PROJECT_ROOT / "website"
@@ -103,7 +105,10 @@ def stage_site(site_url: str, output: Path) -> int:
         shutil.copyfile(SOURCE / relative, destination)
         if destination.suffix in {".html", ".xml", ".txt", ".webmanifest"}:
             content = destination.read_text(encoding="utf-8")
-            destination.write_text(content.replace(DEFAULT_SITE_URL, site_url), encoding="utf-8")
+            content = content.replace(DEFAULT_SITE_URL, site_url)
+            if relative.as_posix() in {"index.html", "om/index.html"}:
+                content = inject_structured_data(content, site_url, "om" if relative.parts[0] == "om" else "en")
+            destination.write_text(content, encoding="utf-8")
     (output / ".nojekyll").touch()
     return len(files)
 

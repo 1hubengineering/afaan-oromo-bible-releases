@@ -2,6 +2,14 @@
 
 Prepared on 8 November 2026 for `1hubengineering/afaan-oromo-bible-releases`.
 
+## Oromo Google Sheets synchronization — 9 November 2026
+
+The owner saved the Oromo Google authorization after the compact website deployment. This supersedes earlier pending-connection statements below. The existing labeled Oromo setup test was imported into Tally's new raw response tab. A fresh test submitted through the live `/om/` feedback dialog on mobile/dark also arrived automatically. Connector read-back confirms two completed Oromo submissions, no partial submissions, and exactly one matching raw row for each ID. UTC timestamps, selected categories and comments match Tally; name and email are blank. The website displayed the translated confirmation and focused its heading. No response rows were manually inserted.
+
+`Feedback OM` now has a native FILTER view of the verified raw tab, matching `Feedback EN`'s header formatting with frozen headers, wrapped text and readable UTC dates. Both test rows match the raw data. Targeted read-back verifies the formula, values and formatting; Google-rendered visual inspection was unavailable, so this is API-based best-effort layout verification. `Setup` records both saved connections, actual raw destinations and the labeled test IDs. Drive metadata confirms owner-only access and `shared: false`; no public sharing or credentials were introduced.
+
+The fresh-submission helper initially selected a server-rendered category before Tally's client was ready. Those attempts sent no submission. Waiting for the trusted `Tally.FormLoaded` ready status resolved the test timing issue; the successful live run required no website logic change. Private evidence is `oromo-sync-test.json` and connector read-back. Fluent Oromo review, attachments and manual assistive-technology checks remain outstanding. The four setup reports (two English, two Oromo) remain clearly labeled for optional owner cleanup.
+
 ## Compact website refinement — 9 November 2026
 
 Published at [bible.1hubengineering.com](https://bible.1hubengineering.com/) and [/om/](https://bible.1hubengineering.com/om/) from website commit `1239e23d2733acab8c40ab5116c1e3916a567208`. [Pages run 42524469516](https://github.com/1hubengineering/afaan-oromo-bible-releases/actions/runs/42524469516) passed validation/package and publication. Nine live text assets match the prepared output. Eight live layouts (English/Oromo × light/dark × 375/1440px) pass with no horizontal overflow, page error or checked axe violation. Both real localized Tally forms load and reveal a conditional question; closing returns focus to the CTA. No additional submission was sent during these live deployment checks. Private evidence: `refinement-deployment-verification.json` and companion captures, excluded from publication.

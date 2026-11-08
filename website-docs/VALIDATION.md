@@ -2,6 +2,14 @@
 
 Prepared on 8 November 2026 for `1hubengineering/afaan-oromo-bible-releases`.
 
+## Feedback website deployment — 8 November 2026
+
+Published at [bible.1hubengineering.com](https://bible.1hubengineering.com/), with [Afaan Oromoo at `/om/`](https://bible.1hubengineering.com/om/), from website commit `777fb503da62911d01b9d2e4729461c91c919357`. [Pages run 42495675061](https://github.com/1hubengineering/afaan-oromo-bible-releases/actions/runs/42495675061) passed both validation/package and publication jobs. The existing custom domain, HTTPS enforcement, deployment workflow and release downloads are preserved.
+
+Nine live text assets match the locally prepared output after line-ending normalization: both HTML pages, CSS, theme/app/feedback/config scripts, robots and sitemap. Live Chromium checks passed eight layouts (English/Oromo, light/dark, 375/1440px). They verify localized canonicals, all six CTAs, real English Tally loading and conditional questions, Oromo's translated email fallback, modal focus return, decoded reader artwork, no horizontal overflow and no page errors. All eight closed-page axe audits reported zero violations for the checked WCAG/best-practice tags. TLS verification remained enabled, and the workstation's normal DNS resolved the domain.
+
+English's previously verified private Google Sheets connection is configured in the published embed. No additional submissions were sent during deployment checks. Oromo stays gated until fluent review, publication and its separate Sheets connection; deployment does not certify those outstanding steps. The earlier “not deployed” statements below describe their historical checkpoints. Local live-deployment evidence is `.tooling/website-feedback-20261108/deployment-verification.json` and its companion captures, excluded from publication.
+
 ## Tally and Google Drive plugin follow-up — 8 November 2026
 
 The owner connected Tally and requested Google Drive use after the local implementation. This supersedes earlier notes about empty IDs and no account access; the website itself remains undeployed.

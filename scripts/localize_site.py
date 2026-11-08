@@ -118,7 +118,7 @@ def localized_html() -> str:
                             f'property="og:url" content="{BASE_URL}om/"')
     # srcset candidates after commas need the same prefix adjustment as src/href.
     source = source.replace('./assets/', '../assets/')
-    source = re.sub(r'(["\'])\./(styles\.css|theme\.js|app\.js)',
+    source = re.sub(r'(["\'])\./(styles\.css|theme\.js|app\.js|feedback-config\.js|feedback\.js)',
                     r'\1../\2', source)
 
     language_link = ('<a class="language-switch" href="../" lang="en" hreflang="en" '

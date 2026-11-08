@@ -21,7 +21,7 @@ DEFAULT_SITE_URL = "https://1hubengineering.github.io/afaan-oromo-bible-releases
 # when adding a new public asset type. Documentation and app data do not belong
 # in the deployment artifact.
 ROOT_FILES = {
-    "index.html", "404.html", "styles.css", "app.js", "theme.js", ".nojekyll",
+    "index.html", "404.html", "styles.css", "app.js", "theme.js", "feedback-config.js", "feedback.js", ".nojekyll",
     "robots.txt", "sitemap.xml", "site.webmanifest", "favicon.ico",
 }
 IMAGE_SUFFIXES = {".webp", ".png", ".jpg", ".jpeg", ".avif", ".svg", ".ico"}

@@ -2,6 +2,67 @@
 
 Prepared on 8 November 2026 for `1hubengineering/afaan-oromo-bible-releases`.
 
+## Tally and Google Drive plugin follow-up — 8 November 2026
+
+The owner connected Tally and requested Google Drive use after the local implementation. This supersedes earlier notes about empty IDs and no account access; the website itself remains undeployed.
+
+- Created real English (`vXrgVQ`) and Afaan Oromoo (`KpeOA7`) forms in the sole connected Tally workspace. Each form's read-back confirms 19 questions, five category SHOW rules, five optional fields (correction, reproduction steps, screenshot, name and email), matching edition/OS options, privacy/review notices and a custom thank-you page. No unnecessary branch, calculated-field system, respondent login, password, payment or email notification was added.
+- Applied the website's ivory, forest text and green button colors through Tally's supported appearance settings. English system messages are used because the plugin has no Oromo system-language option. Oromo editable content is translated but remains unreviewed.
+- Published English at https://tally.so/r/vXrgVQ. Oromo remains an unpublished draft at https://tally.so/forms/KpeOA7/edit, with its website review gate false. Both real IDs are in `website/feedback-config.js`.
+- Verified the actual English iframe on a locally served prepared website at desktop/light (1280px) and mobile/dark (375px). All five categories reveal their own questions and hide other branches, the real `Tally.FormLoaded` message clears the loading status, and neither the frame nor website overflows horizontally in these checks.
+- Sent two clearly labeled setup tests through the actual English embed, with name/email blank: general feedback before connection and a website issue after connection. In each case the actual `Tally.FormSubmitted` message triggered the website confirmation and focused its heading. Tally read-back and the response Sheet identify the accepted submissions; no optional contacts were entered.
+- Created **Afaan Oromo Bible — Private Feedback Review** using Google Drive. Initial and final read-back confirm `shared: false`, with only owner permission. Tally writes to its generated `Afaan Oromo Bible — Share Feedback (English)` tab. `Feedback EN` is a native formula view of those real rows with readable UTC timestamps. `Feedback OM` is reserved for the reviewed form's future connection. `Setup`, bilingual `Field Map` and the empty `Review` tab explain the workflow. Review has canonical headers and status/priority dropdowns; these are reviewer-owned, not automatically populated by Tally. The private workbook URL is shared only in the owner's chat, not public source or the source ZIP.
+- The owner saved the English Google Sheets authorization in Tally's dashboard because neither plugin can save that connection. **Actual synchronization is verified:** the existing setup test was imported, and a new test submitted after connection arrived automatically. Read-back matched submission IDs, UTC timestamps, categories, affected page and description, with optional contacts empty. No response row was manually inserted to stand in for synchronization. Both tests remain clearly labeled in the actual service and Sheet. Oromo still needs review, publication and connection.
+
+The unavailable-state browser matrix now overrides configuration in its test browser so it remains reproducible after real IDs are configured. An additional eight-layout regression plus transport/no-JavaScript checks passed after this configuration change, with no checked axe violations. Fixture tests still prove only mechanics. The separate real-English checks above use the actual service and no intercepted form. Local evidence is retained under the ignored `.tooling/website-feedback-20261108` directory, including the live event/submission reports and desktop/mobile captures. Real screenshot uploads, completed submissions in all categories, Oromo rendering/submission, manual assistive-technology checks and website publication remain open.
+
+## Feedback and UI refinement — 8 November 2026
+
+This checkpoint supersedes the historical copy, file counts and company-name preferences below. Changes are local to the public website checkout; **no deployment, real Tally submission or Google Sheets connection was performed**.
+
+The site retains its existing ivory/forest/gold palette, serif headings, authorized screenshots, edition attributions, installer links and beta disclosures. Review using the humanizer and ui-ux-pro-max skills led to these changes:
+
+| Finding | Change |
+| --- | --- |
+| Feedback required a public GitHub issue/account | Six feedback entry points open one native modal; each locale uses its own public Tally configuration. Empty/unreviewed configuration displays an email alternative. |
+| Small mobile body text and dense feature columns | Key mobile prose and FAQs now use 16px text, with a single feature column, readable line spacing and wrapping for long Oromo labels. |
+| Crowded navigation and small links | Collapsed-menu breakpoint accommodates longer text; important controls/links have 44px targets. Feedback is emphasized in navigation and downloads without replacing the primary Download action. |
+| Vague or repetitive marketing copy | Shorter hero, feature, download, Help and feedback wording. Gallery copy now accurately identifies English beta controls and pending Oromo interface review. |
+| Developer role needed clarification | About identifies AndHub Engineering PLC as the developer and maintainer, explains its software/systems/consultancy work, and preserves independence and contact details. |
+| Embedded form failures and privacy needed clear handling | On-demand iframe, status messages, a direct-form link above the embed, delayed/blocked-load recovery, retry and a trusted-event confirmation. Optional contacts, privacy and edition-review notices are bilingual. No answer storage, query-string forwarding, analytics or backend was added. |
+
+Completed checks on Windows with Node 24.19.0, Python 3.14 and the existing Playwright/axe installation:
+
+- Localization generation and `--check` pass. JavaScript syntax checks and `git diff --check` pass.
+- Four existing metadata unit tests pass. Both custom-domain and project-subpath artifacts pass the static validator: 23 allowlisted files, valid assets/anchors/ARIA/localized metadata and all four unchanged beta.8 installer links.
+- Chromium passes 24 root-hosted layouts: English/Oromo, light/dark, at 320, 375, 768, 844 (390px-high landscape), 1280 and 1440 CSS pixels. Eight additional project-subpath layouts pass at 375 and 1440 in both languages/themes. These cover all six CTAs, modal background inertness, focus return, shell Escape, menu focus, gallery keyboard behavior, appearance persistence, no horizontal overflow, and whole-page/modal axe checks with FAQs expanded. No checked axe violations or page errors were reported. The layout runs use reduced-motion emulation.
+- In both hosting modes, separate configured-transport checks pass for both locales: lazy iframe creation, correct locale routing, loading, 15-second delayed state, late readiness, retry, blocked network requests, direct fallback URL, malicious-origin/wrong-window/wrong-form message rejection, confirmation focus and iframe cleanup. After moving the direct fallback above the embed, the affected configured checks were rerun successfully. These use intercepted **test-only message fixtures**, never a fake production form; they do not demonstrate a real successful Tally submission or a Sheet row.
+- Four no-JavaScript journeys pass across the two hosting modes: email fallback, all four screenshots visible and ordinary static language links.
+- Desktop/light and Oromo/mobile/dark captures were visually inspected. Configured captures contain an unmistakable transport-test page, not a representation of a real form.
+
+Chromium does not propagate Escape from within a cross-origin iframe to the parent dialog. The fixture checks demonstrate leaving it with Shift+Tab, reaching Close and closing with Escape. The sticky Close button stays available, the dialog includes the alternative keyboard instruction, and backdrop clicks do not discard work. Repeat keyboard/screen-reader checks in the actual Tally forms because their fields and validation can change behavior. Native dialogs may also let keyboard focus visit browser chrome at a boundary; background page controls remain inert.
+
+Still required: real form creation/publishing, fluent Oromo review, acceptance of English Tally system/validation messages, private Google Sheets connection and row/attachment verification, live conditional-question and submission tests, real mobile/file-upload checks, browser zoom/manual assistive-technology checks and Pages publication verification. Tally’s cross-origin form retains a neutral light surface within the themed shell. The website cannot independently guarantee the form’s internal dark-mode appearance. See [the setup and launch checklist](FEEDBACK.md).
+
+QA JSON and PNG captures are retained only in local `_preview/feedback-qa`, `_preview/feedback-subpath-qa` and `_preview/feedback-transport-qa` directories, excluded from the website publication allowlist.
+
+### Reproduce feedback browser checks
+
+The optional `scripts/test_feedback.mjs` uses Playwright and axe for development only. This workspace reuses the already installed packages; nothing was added to the website’s runtime or Pages workflow. In a separate QA directory, install `@playwright/test` and `@axe-core/playwright` and the matching Chromium if they are not already available. Set `AOB_QA_DIR` to that directory so the script resolves its packages there. Without it, normal Node module resolution is used. Host the prepared artifact first:
+
+```sh
+python3 scripts/prepare_site.py --site-url https://bible.1hubengineering.com/
+python3 -m http.server 8770 --bind 127.0.0.1 --directory _site
+```
+
+In another terminal, from the website repository:
+
+```sh
+node scripts/test_feedback.mjs
+```
+
+For project-path checks, prepare `_preview/afaan-oromo-bible-releases`, serve `_preview` on port 8771, set `AOB_SITE_URL=http://127.0.0.1:8771/afaan-oromo-bible-releases/` and `AOB_QA_OUTPUT=_preview/feedback-subpath-qa`, then run `node scripts/test_feedback.mjs --subpath-smoke`. In PowerShell set these with `$env:AOB_SITE_URL='…'` and `$env:AOB_QA_OUTPUT='…'`. The `--transport-only` flag reruns affected configured mechanics without repeating the layout matrix. Test routing overrides configuration in the browser only; it never writes fixture IDs to website source.
+
 ## Completed checks
 
 | Area | Evidence and result |

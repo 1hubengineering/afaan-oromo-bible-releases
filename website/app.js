@@ -33,7 +33,7 @@
 
   const nav = document.querySelector('.site-nav');
   const menuButton = document.querySelector('.menu-toggle');
-  const mobile = window.matchMedia('(max-width: 1100px)');
+  const mobile = window.matchMedia('(max-width: 1279px)');
   let menuOpen = false;
   function setMenu(open, restoreFocus = false) {
     menuOpen = open;
@@ -57,7 +57,7 @@
   });
   nav.addEventListener('click', event => {
     const link = event.target.closest('a');
-    if (!link || !mobile.matches) return;
+    if (!link || link.hasAttribute('data-feedback') || !mobile.matches) return;
     setMenu(false);
     // Move keyboard focus with the navigation, rather than leaving it hidden.
     const target = document.querySelector(link.getAttribute('href'));

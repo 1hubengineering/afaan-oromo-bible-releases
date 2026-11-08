@@ -130,6 +130,6 @@ The locally inspected licensed `dialog-dialog-standard-1` and `button-button-sta
 - [ ] Live iframe keyboard entry/exit, Escape, tab order, screen reader, mobile uploads, zoom, light/dark contrast and conditional validation checked.
 - [ ] Block Tally or disconnect internet: loading state, delayed state, retry and direct link remain understandable; closing restores focus.
 - [ ] Run localization, metadata and artifact checks from README; inspect root and repository-path previews.
-- [ ] Review website diff; deploy with the existing Pages workflow and verify both live language URLs. See the latest validation entry for deployment status.
+- [x] Review website diff; deploy with the existing Pages workflow and verify both live language URLs. [Pages run 42524469516](https://github.com/1hubengineering/afaan-oromo-bible-releases/actions/runs/42524469516) passed; eight live layouts load their correct real form. See the latest validation entry for evidence and limits.
 
 Local browser checks and outstanding integration evidence are recorded in [VALIDATION.md](VALIDATION.md).

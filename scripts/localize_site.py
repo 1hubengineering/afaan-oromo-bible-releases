@@ -121,15 +121,13 @@ def localized_html() -> str:
     source = re.sub(r'(["\'])\./(styles\.css|theme\.js|app\.js|feedback-config\.js|feedback\.js)',
                     r'\1../\2', source)
 
-    language_link = ('<a class="language-switch" href="../" lang="en" hreflang="en" '
-                     'aria-label="Fuula kana Afaan Ingiliziitiin dubbisi">'
-                     '<svg class="icon" aria-hidden="true"><use href="#i-language"/></svg>'
-                     '<span class="language-long">English</span>'
-                     '<span class="language-short" aria-hidden="true">EN</span></a>')
-    source, count = re.subn(r'<a class="language-switch"[^>]*>.*?</a>',
-                            language_link, source, flags=re.DOTALL)
+    language_group = ('<div class="language-switcher" role="group" aria-label="Afaan fuula kanaa">'
+                      '<a class="language-option language-switch" href="../" lang="en" hreflang="en" aria-label="English">EN</a>'
+                      '<a class="language-option" href="./" lang="om" hreflang="om" aria-current="page" aria-label="Afaan Oromoo">OR</a></div>')
+    source, count = re.subn(r'<div class="language-switcher"[^>]*>.*?</div>',
+                            language_group, source, flags=re.DOTALL)
     if count != 1:
-        raise ValueError("Expected exactly one native language switch link")
+        raise ValueError("Expected exactly one language switcher")
     return source
 
 

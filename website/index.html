@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#f8f6ef">
+  <meta name="theme-color" content="#fbf5e9">
   <title>Afaan Oromo Bible — Offline Reader and Beta Downloads</title>
   <meta name="description" content="Read the Afaan Oromo Bible offline. Search, compare editions and save study notes. Windows beta plus experimental macOS and Ubuntu downloads.">
   <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -75,13 +75,14 @@
       <nav class="site-nav" id="site-nav" aria-label="Main navigation">
         <a href="#features" data-i18n="navigation.features">Features</a>
         <a href="#screenshots" data-i18n="navigation.screenshots">Screenshots</a>
-        <a href="#downloads" data-i18n="navigation.downloads">Downloads</a>
         <a href="#help" data-i18n="navigation.help">Help</a>
         <a href="#about" data-i18n="navigation.about">About us</a>
-        <a class="nav-feedback" href="#feedback" data-feedback><svg class="icon" aria-hidden="true"><use href="#i-feedback"/></svg><span>Share Feedback</span></a>
       </nav>
       <div class="header-actions">
-        <a class="language-switch" href="./om/" lang="om" hreflang="om" aria-label="Read this page in Afaan Oromoo"><svg class="icon" aria-hidden="true"><use href="#i-language"/></svg><span class="language-long">Afaan Oromoo</span><span class="language-short" aria-hidden="true">OM</span></a>
+        <div class="language-switcher" role="group" aria-label="Page language">
+          <a class="language-option" href="./" lang="en" hreflang="en" aria-current="page" aria-label="English">EN</a>
+          <a class="language-option language-switch" href="./om/" lang="om" hreflang="om" aria-label="Afaan Oromoo">OR</a>
+        </div>
         <button class="icon-button theme-toggle" type="button" aria-label="Switch to dark appearance" title="Switch to dark appearance" hidden>
           <svg class="icon moon-icon" aria-hidden="true"><use href="#i-moon"/></svg>
           <svg class="icon sun-icon" aria-hidden="true"><use href="#i-sun"/></svg>
@@ -103,84 +104,76 @@
         <p class="hero-description" data-i18n="hero.description">Read and search Scripture offline, compare editions and keep your study notes on your computer.</p>
         <div class="hero-actions">
           <a class="button" href="#downloads"><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg><span data-i18n="hero.download">Download the beta</span></a>
-          <a class="text-link" href="#screenshots"><span data-i18n="hero.explore">Explore the reader</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="button button-outline" href="#feedback" data-feedback><svg class="icon" aria-hidden="true"><use href="#i-feedback"/></svg><span>Share Feedback</span></a>
         </div>
         <p class="hero-footnote" data-i18n="hero.platforms">Windows beta <span aria-hidden="true">·</span> Experimental macOS &amp; Linux builds</p>
       </div>
       <figure class="hero-figure">
-        <div class="screenshot-frame hero-screen">
-          <div class="window-bar" aria-hidden="true"><span class="window-dots"><i></i><i></i><i></i></span><span>Afaan Oromo Bible</span><span class="window-detail">YOUR READING SPACE</span></div>
+        <div class="hero-monitor"><div class="screenshot-frame hero-screen">
           <a class="screenshot-link" href="./assets/images/reader-classic.webp" data-lightbox data-caption="Afaan Oromo reading · Classic / Light. An authentic beta.8 screenshot, with contextual verse highlighting." aria-label="Enlarge the Afaan Oromo reading screenshot">
-            <img src="./assets/images/reader-classic.webp" srcset="./assets/images/reader-classic-960.webp 960w, ./assets/images/reader-classic.webp 1920w" sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1279px) calc(100vw - 80px), 1200px" width="1920" height="1094" alt="The Afaan Oromo reader in Classic light appearance: Oromo book navigation on the left, Matthew chapter 2 in the reading pane, and a highlighted verse with note and bookmark actions." fetchpriority="high" decoding="async">
+            <img src="./assets/images/reader-classic.webp" srcset="./assets/images/reader-classic-960.webp 960w, ./assets/images/reader-classic.webp 1920w" sizes="(max-width: 959px) calc(100vw - 64px), 620px" width="1920" height="1094" alt="The Afaan Oromo reader in Classic light appearance: Oromo book navigation on the left, Matthew chapter 2 in the reading pane, and a highlighted verse with note and bookmark actions." fetchpriority="high" decoding="async">
             <span class="image-expand"><svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg><span>Take a closer look</span></span>
           </a>
-        </div>
+        </div><span class="monitor-stand" aria-hidden="true"></span></div>
         <figcaption><span class="caption-rule" aria-hidden="true"></span><span data-i18n="hero.caption">The Windows beta.8 reader</span><span class="figure-detail">Classic · Light</span></figcaption>
       </figure>
-      <ul class="quiet-benefits" aria-label="At a glance">
-        <li><svg class="icon" aria-hidden="true"><use href="#i-offline"/></svg><span data-i18n="benefit.offline">Read offline after setup</span></li>
-        <li><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg><span data-i18n="benefit.editions">Three local editions</span></li>
-        <li><svg class="icon" aria-hidden="true"><use href="#i-pen"/></svg><span data-i18n="benefit.local">Personal study, kept locally</span></li>
-      </ul>
     </section>
 
     <section class="experience section-space container" id="features" aria-labelledby="experience-title">
       <div class="section-intro">
-        <div><p class="eyebrow" data-i18n="features.eyebrow">TOOLS FOR PERSONAL STUDY</p><h2 id="experience-title" data-i18n="features.title">Settle into the Word.<br><em>Follow your curiosity.</em></h2></div>
+        <div><p class="eyebrow" data-i18n="features.eyebrow">TOOLS FOR PERSONAL STUDY</p><h2 id="experience-title" data-i18n="features.title">Read, compare and keep notes.</h2></div>
         <p class="section-summary" data-i18n="features.summary">Find a passage, compare editions or write a note while keeping Scripture in view.</p>
       </div>
       <div class="feature-grid">
-        <article class="feature"><span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg></span><h3 data-i18n="features.read.title">Find your place.</h3><p data-i18n="features.read.description">Search words, phrases and passage references offline. Browse Afaan Oromo book names and chapters, or narrow your search results.</p><span class="feature-note" data-i18n="features.read.note">Reading that remembers where you left off</span></article>
-        <article class="feature"><span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-compare"/></svg></span><h3 data-i18n="features.compare.title">Read alongside.</h3><p data-i18n="features.compare.description">Open two local editions side by side. Compare passages in Afaan Oromo and English while following the same book and chapter.</p><span class="feature-note" data-i18n="features.compare.note">Follow the same book and chapter</span></article>
-        <article class="feature"><span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-pen"/></svg></span><h3 data-i18n="features.notes.title">Make room for reflection.</h3><p data-i18n="features.notes.description">Highlight a verse, save a bookmark or write a personal note. Keep your thoughts beside a passage, or begin a standalone study.</p><span class="feature-note" data-i18n="features.notes.note">Passage-linked or standalone notes</span></article>
-        <article class="feature"><span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-save"/></svg></span><h3 data-i18n="features.backup.title">Keep what you discover.</h3><p data-i18n="features.backup.description">Export a note as PDF, Word or Markdown. Make a separate backup of your personal records so you have a copy to keep.</p><span class="feature-note" data-i18n="features.backup.note">Note exports and personal-data backups</span></article>
+        <article class="feature"><span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg></span><h3 data-i18n="features.read.title">Find your place.</h3><p data-i18n="features.read.description">Search words, phrases and passage references offline. Browse Afaan Oromo book names and chapters, or narrow your search results. The reader remembers where you left off.</p></article>
+        <article class="feature"><span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-compare"/></svg></span><h3 data-i18n="features.compare.title">Read alongside.</h3><p data-i18n="features.compare.description">Open two local editions side by side. Compare passages in Afaan Oromo and English while following the same book and chapter.</p></article>
+        <article class="feature"><span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-pen"/></svg></span><h3 data-i18n="features.notes.title">Make room for reflection.</h3><p data-i18n="features.notes.description">Highlight a verse, save a bookmark or write a personal note. Keep your thoughts beside a passage, or begin a standalone study.</p></article>
+        <article class="feature"><span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-save"/></svg></span><h3 data-i18n="features.backup.title">Keep what you discover.</h3><p data-i18n="features.backup.description">Export a note as PDF, Word or Markdown. Make a separate backup of your personal records so you have a copy to keep.</p></article>
       </div>
-    </section>
-
-    <section class="gallery-section section-space" id="screenshots" aria-labelledby="gallery-title">
-      <div class="container">
-        <div class="section-intro gallery-intro"><div><p class="eyebrow" data-i18n="gallery.eyebrow">A CLOSER LOOK</p><h2 id="gallery-title" data-i18n="gallery.title">A familiar book.<br><em>A reading space of your own.</em></h2></div><p class="section-summary" data-i18n="gallery.summary">Choose from five palettes and adjust the text for comfortable reading. The beta has English controls; Afaan Oromo interface wording still needs review.</p></div>
-        <div class="gallery-tabs" role="tablist" aria-label="Application screenshots" hidden>
-          <button type="button" role="tab" id="tab-compare" aria-controls="panel-compare" aria-selected="true" tabindex="0"><svg class="icon" aria-hidden="true"><use href="#i-compare"/></svg><span data-i18n="gallery.tabs.compare">Compare</span></button>
-          <button type="button" role="tab" id="tab-notes" aria-controls="panel-notes" aria-selected="false" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#i-pen"/></svg><span data-i18n="gallery.tabs.notes">Personal notes</span></button>
-          <button type="button" role="tab" id="tab-dark" aria-controls="panel-dark" aria-selected="false" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#i-moon"/></svg><span data-i18n="gallery.tabs.dark">Evening reading</span></button>
-          <button type="button" role="tab" id="tab-bookmarks" aria-controls="panel-bookmarks" aria-selected="false" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg><span data-i18n="gallery.tabs.bookmarks">Bookmarks</span></button>
-        </div>
-        <div class="gallery-panels">
-          <div class="gallery-panel" role="group" id="panel-compare" aria-labelledby="tab-compare"><figure>
-            <div class="screenshot-frame"><a class="screenshot-link" href="./assets/images/compare-sepia.webp" data-lightbox data-caption="Side-by-side Oromo and KJV reading · Sepia / Light. Comparison follows book and chapter; it does not establish reviewed verse-by-verse alignment." aria-label="Enlarge the side-by-side comparison screenshot"><img src="./assets/images/compare-sepia.webp" srcset="./assets/images/compare-sepia-960.webp 960w, ./assets/images/compare-sepia.webp 1920w" sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1279px) calc(100vw - 80px), 1200px" width="1920" height="1094" loading="lazy" decoding="async" alt="Two reading panes in the warm Sepia palette, showing Matthew chapter 2 in gaz Afaan Oromo on the left and King James English on the right."><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg><span>Enlarge</span></span></a></div>
-            <figcaption><div><strong data-i18n="gallery.compare.title">Two editions. Room to explore.</strong><p data-i18n="gallery.compare.caption">Read Oromo and KJV side by side. Comparison follows book and chapter; verse numbering and wording may differ between editions.</p></div><span class="palette-label"><i class="palette-swatch swatch-sepia" aria-hidden="true"></i>Sepia / Light</span></figcaption>
-          </figure></div>
-          <div class="gallery-panel" role="group" id="panel-notes" aria-labelledby="tab-notes"><figure>
-            <div class="screenshot-frame"><a class="screenshot-link" href="./assets/images/notes-forest.webp" data-lightbox data-caption="A verse-linked study note · Forest / Light. All writing shown is illustrative demo content from an isolated profile." aria-label="Enlarge the personal notes screenshot"><img src="./assets/images/notes-forest.webp" srcset="./assets/images/notes-forest-960.webp 960w, ./assets/images/notes-forest.webp 1920w" sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1279px) calc(100vw - 80px), 1200px" width="1920" height="1094" loading="lazy" decoding="async" alt="Forest light appearance with an illustrative Matthew 2 study note open beside the Scripture, showing text-formatting controls and a linked passage."><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg><span>Enlarge</span></span></a></div>
-            <figcaption><div><strong data-i18n="gallery.notes.title">Give your thoughts a place to stay.</strong><p data-i18n="gallery.notes.caption">Write and format a note while the passage stays in view. The note shown here is illustrative demo content, not a personal record.</p></div><span class="palette-label"><i class="palette-swatch swatch-forest" aria-hidden="true"></i>Forest / Light</span></figcaption>
-          </figure></div>
-          <div class="gallery-panel" role="group" id="panel-dark" aria-labelledby="tab-dark"><figure>
-            <div class="screenshot-frame"><a class="screenshot-link" href="./assets/images/compare-midnight.webp" data-lightbox data-caption="Side-by-side reading · Midnight / Dark. Each of the five app palettes supports independent light, dark or system appearance." aria-label="Enlarge the dark appearance screenshot"><img src="./assets/images/compare-midnight.webp" srcset="./assets/images/compare-midnight-960.webp 960w, ./assets/images/compare-midnight.webp 1920w" sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1279px) calc(100vw - 80px), 1200px" width="1920" height="1094" loading="lazy" decoding="async" alt="Oromo and KJV comparison in Midnight dark appearance, with pale Scripture text on deep navy reading panes and a rose verse highlight."><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg><span>Enlarge</span></span></a></div>
-            <figcaption><div><strong data-i18n="gallery.dark.title">Let the page meet the moment.</strong><p data-i18n="gallery.dark.caption">Five palettes, each with light, dark or system appearance. Adjust Scripture size, spacing and reading width to find your comfortable rhythm.</p></div><span class="palette-label"><i class="palette-swatch swatch-midnight" aria-hidden="true"></i>Midnight / Dark</span></figcaption>
-          </figure></div>
-          <div class="gallery-panel" role="group" id="panel-bookmarks" aria-labelledby="tab-bookmarks"><figure>
-            <div class="screenshot-frame"><a class="screenshot-link" href="./assets/images/bookmarks-plum.webp" data-lightbox data-caption="Saved passage bookmarks · Plum / Dark. Bookmark labels shown are illustrative demo content, not personal records." aria-label="Enlarge the bookmarks screenshot"><img src="./assets/images/bookmarks-plum.webp" srcset="./assets/images/bookmarks-plum-960.webp 960w, ./assets/images/bookmarks-plum.webp 1920w" sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1279px) calc(100vw - 80px), 1200px" width="1920" height="1094" loading="lazy" decoding="async" alt="The Plum dark reading palette with a bookmarks sidebar containing three clearly labeled demo bookmarks for Matthew 2, Romans 8 and Psalm 23."><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg><span>Enlarge</span></span></a></div>
-            <figcaption><div><strong data-i18n="gallery.bookmarks.title">Return to what speaks to you.</strong><p data-i18n="gallery.bookmarks.caption">Give saved passages a useful label and return when you’re ready. These bookmark labels are illustrative demo content.</p></div><span class="palette-label"><i class="palette-swatch swatch-plum" aria-hidden="true"></i>Plum / Dark</span></figcaption>
-          </figure></div>
-        </div>
-        <p class="gallery-provenance" data-i18n="gallery.provenance">Authentic screenshots of the Windows beta.8 app, captured in an isolated demo profile.</p>
-      </div>
-    </section>
-
-    <section class="editions-section section-space container" aria-labelledby="editions-title">
-      <div class="edition-heading"><p class="eyebrow" data-i18n="editions.eyebrow">WORDS TO READ. EDITIONS TO EXPLORE.</p><h2 id="editions-title" data-i18n="editions.title">Three editions, <em>close at hand.</em></h2><p data-i18n="editions.description">Installed with the reader and available offline after setup.</p></div>
+      <details class="editions-disclosure">
+        <summary><span data-i18n="editions.summary">Included editions: gaz 2022 · OOCS 2024 · KJV</span><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+        <div class="editions-details">
+      <div class="edition-heading"><p data-i18n="editions.description">Installed with the reader and available offline after setup.</p></div>
       <div class="editions-list">
         <article><span class="edition-code">gaz</span><div><h3 data-i18n="editions.gaz.title">gaz 2022 <span>· Western Oromo</span></h3><p>Biblica® Open New Oromo Contemporary Version™, Western</p></div><span class="edition-language">Afaan Oromo</span></article>
         <article><span class="edition-code">OOCS</span><div><h3 data-i18n="editions.oocs.title">OOCS 2024</h3><p>Biblica® Open Oromo Contemporary Scriptures™</p></div><span class="edition-language">Afaan Oromo</span></article>
         <article><span class="edition-code">KJV</span><div><h3 data-i18n="editions.kjv.title">King James Version</h3><p data-i18n="editions.kjv.description">The classic English translation for reading and comparison.</p></div><span class="edition-language">English</span></article>
       </div>
       <p class="edition-notice"><span data-i18n="editions.notice">Each edition retains its own copyright and licensing terms.</span> <a href="https://github.com/1hubengineering/afaan-oromo-bible-releases/blob/main/LICENSING.md" data-i18n="editions.licenseLink">Read the edition credits and licensing notices</a><span aria-hidden="true"> ↗</span></p>
+        </div>
+      </details>
+
     </section>
+
+    <section class="gallery-section section-space" id="screenshots" aria-labelledby="gallery-title">
+      <div class="container">
+        <div class="section-intro gallery-intro"><div><p class="eyebrow" data-i18n="gallery.eyebrow">A CLOSER LOOK</p><h2 id="gallery-title" data-i18n="gallery.title">Inside the reader</h2></div><p class="section-summary" data-i18n="gallery.summary">Choose from five palettes and adjust the text for comfortable reading. The beta has English controls; Afaan Oromo interface wording still needs review.</p></div>
+        <div class="gallery-panels">
+          <div class="gallery-panel" role="group" id="panel-compare" aria-labelledby="caption-compare"><figure>
+            <div class="screenshot-frame"><a class="screenshot-link" href="./assets/images/compare-sepia.webp" data-lightbox data-caption="Side-by-side Oromo and KJV reading · Sepia / Light. Comparison follows book and chapter; it does not establish reviewed verse-by-verse alignment." aria-label="Enlarge the side-by-side comparison screenshot"><img src="./assets/images/compare-sepia.webp" srcset="./assets/images/compare-sepia-960.webp 960w, ./assets/images/compare-sepia.webp 1920w" sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1023px) calc((100vw - 88px) / 2), 280px" width="1920" height="1094" loading="lazy" decoding="async" alt="Two reading panes in the warm Sepia palette, showing Matthew chapter 2 in gaz Afaan Oromo on the left and King James English on the right."><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg><span>Enlarge</span></span></a></div>
+            <figcaption><div><strong id="caption-compare" data-i18n="gallery.compare.title">Compare editions</strong></div><span class="palette-label"><i class="palette-swatch swatch-sepia" aria-hidden="true"></i>Sepia / Light</span></figcaption>
+          </figure></div>
+          <div class="gallery-panel" role="group" id="panel-notes" aria-labelledby="caption-notes"><figure>
+            <div class="screenshot-frame"><a class="screenshot-link" href="./assets/images/notes-forest.webp" data-lightbox data-caption="A verse-linked study note · Forest / Light. All writing shown is illustrative demo content from an isolated profile." aria-label="Enlarge the personal notes screenshot"><img src="./assets/images/notes-forest.webp" srcset="./assets/images/notes-forest-960.webp 960w, ./assets/images/notes-forest.webp 1920w" sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1023px) calc((100vw - 88px) / 2), 280px" width="1920" height="1094" loading="lazy" decoding="async" alt="Forest light appearance with an illustrative Matthew 2 study note open beside the Scripture, showing text-formatting controls and a linked passage."><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg><span>Enlarge</span></span></a></div>
+            <figcaption><div><strong id="caption-notes" data-i18n="gallery.notes.title">Personal notes</strong></div><span class="palette-label"><i class="palette-swatch swatch-forest" aria-hidden="true"></i>Forest / Light</span></figcaption>
+          </figure></div>
+          <div class="gallery-panel" role="group" id="panel-dark" aria-labelledby="caption-dark"><figure>
+            <div class="screenshot-frame"><a class="screenshot-link" href="./assets/images/compare-midnight.webp" data-lightbox data-caption="Side-by-side reading · Midnight / Dark. Each of the five app palettes supports light, dark or system appearance. Scripture size, spacing and reading width are adjustable." aria-label="Enlarge the dark appearance screenshot"><img src="./assets/images/compare-midnight.webp" srcset="./assets/images/compare-midnight-960.webp 960w, ./assets/images/compare-midnight.webp 1920w" sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1023px) calc((100vw - 88px) / 2), 280px" width="1920" height="1094" loading="lazy" decoding="async" alt="Oromo and KJV comparison in Midnight dark appearance, with pale Scripture text on deep navy reading panes and a rose verse highlight."><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg><span>Enlarge</span></span></a></div>
+            <figcaption><div><strong id="caption-dark" data-i18n="gallery.dark.title">Evening reading</strong></div><span class="palette-label"><i class="palette-swatch swatch-midnight" aria-hidden="true"></i>Midnight / Dark</span></figcaption>
+          </figure></div>
+          <div class="gallery-panel" role="group" id="panel-bookmarks" aria-labelledby="caption-bookmarks"><figure>
+            <div class="screenshot-frame"><a class="screenshot-link" href="./assets/images/bookmarks-plum.webp" data-lightbox data-caption="Saved passage bookmarks · Plum / Dark. Bookmark labels shown are illustrative demo content, not personal records." aria-label="Enlarge the bookmarks screenshot"><img src="./assets/images/bookmarks-plum.webp" srcset="./assets/images/bookmarks-plum-960.webp 960w, ./assets/images/bookmarks-plum.webp 1920w" sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1023px) calc((100vw - 88px) / 2), 280px" width="1920" height="1094" loading="lazy" decoding="async" alt="The Plum dark reading palette with a bookmarks sidebar containing three clearly labeled demo bookmarks for Matthew 2, Romans 8 and Psalm 23."><span class="image-expand"><svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg><span>Enlarge</span></span></a></div>
+            <figcaption><div><strong id="caption-bookmarks" data-i18n="gallery.bookmarks.title">Bookmarks</strong></div><span class="palette-label"><i class="palette-swatch swatch-plum" aria-hidden="true"></i>Plum / Dark</span></figcaption>
+          </figure></div>
+        </div>
+        <p class="gallery-provenance" data-i18n="gallery.provenance">Authentic screenshots of the Windows beta.8 app, captured in an isolated demo profile.</p>
+      </div>
+    </section>
+
 
     <section class="download-section section-space" id="downloads" aria-labelledby="downloads-title">
       <div class="container">
-        <div class="download-intro"><span class="eyebrow" data-i18n="downloads.eyebrow">TAKE THE READER WITH YOU</span><h2 id="downloads-title" data-i18n="downloads.title">A little space for Scripture.<br><em>Right on your desktop.</em></h2><p data-i18n="downloads.description">Choose your platform to try 0.1.0-beta.8.<br>These are testing releases. Your feedback helps us decide what to improve next.</p></div>
+        <div class="download-intro"><span class="eyebrow" data-i18n="downloads.eyebrow">TAKE THE READER WITH YOU</span><h2 id="downloads-title" data-i18n="downloads.title">Download the beta</h2><p data-i18n="downloads.description">Choose your platform to try 0.1.0-beta.8.<br>These are testing releases. Your feedback helps us decide what to improve next.</p></div>
         <div class="download-grid">
           <article class="download-card windows-card" aria-labelledby="windows-title">
             <div class="platform-top"><svg class="icon platform-icon" aria-hidden="true"><use href="#i-windows"/></svg><span class="platform-status" data-i18n="downloads.windows.status">Windows beta</span></div>
@@ -210,13 +203,13 @@
           <a href="https://github.com/1hubengineering/afaan-oromo-bible-releases/releases/tag/v0.1.0-beta.8" data-i18n="downloads.notes">Release notes</a>
           <a href="https://github.com/1hubengineering/afaan-oromo-bible-releases/blob/main/TESTING_GUIDE.md" data-i18n="downloads.testing">Testing guide</a>
         </div>
-        <div class="download-feedback"><p data-i18n="downloads.feedback">Trouble downloading or installing? Tell us what happened.</p><a class="text-link" href="#feedback" data-feedback><svg class="icon" aria-hidden="true"><use href="#i-feedback"/></svg><span>Share Feedback</span></a></div>
+        <div class="download-feedback"><p data-i18n="downloads.feedback">Trouble downloading or installing? Tell us what happened.</p><a class="button button-outline" href="#feedback" data-feedback><svg class="icon" aria-hidden="true"><use href="#i-feedback"/></svg><span>Share Feedback</span></a></div>
         <p class="download-footnote" data-i18n="downloads.limitations">Windows is the current public beta; Mac and Linux are experimental testing downloads. No build is a fully qualified production release. Back up your personal records before testing or updating.</p>
       </div>
     </section>
 
     <section class="help-section section-space container" id="help" aria-labelledby="help-title">
-      <div class="help-heading"><p class="eyebrow" data-i18n="help.eyebrow">A FEW HELPFUL ANSWERS</p><h2 id="help-title" data-i18n="help.title">Help with <em>the reader.</em></h2><p data-i18n="help.intro">Installation, editions and keeping your study safe.</p><a class="text-link" href="https://github.com/1hubengineering/afaan-oromo-bible-releases/blob/main/USER_GUIDE.md"><span data-i18n="help.guide">Read the user guide</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a><div class="help-feedback"><a class="text-link" href="#feedback" data-feedback><svg class="icon" aria-hidden="true"><use href="#i-feedback"/></svg><span>Share Feedback</span></a></div></div>
+      <div class="help-heading"><p class="eyebrow" data-i18n="help.eyebrow">A FEW HELPFUL ANSWERS</p><h2 id="help-title" data-i18n="help.title">Help with <em>the reader.</em></h2><p data-i18n="help.intro">Installation, editions and keeping your study safe.</p><a class="text-link" href="https://github.com/1hubengineering/afaan-oromo-bible-releases/blob/main/USER_GUIDE.md"><span data-i18n="help.guide">Read the user guide</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a><div class="help-feedback" id="feedback"><a class="button button-outline" href="#feedback" data-feedback><svg class="icon" aria-hidden="true"><use href="#i-feedback"/></svg><span>Share Feedback</span></a></div><p class="feedback-email" data-i18n="feedback.email">Prefer email, or can’t open the form? Write to <a href="mailto:info@1hubengineering.com">info@1hubengineering.com</a>. Feedback forms need JavaScript and an internet connection.</p></div>
       <div class="faq-list">
         <details><summary><span data-i18n="faq.offline.question">Can I use it without an internet connection?</span><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary><div class="faq-answer"><p data-i18n="faq.offline.answer">Yes. After the app and its prerequisites are installed, core reading, search, comparison, notes and exports work locally without an account. The first installation may need internet to download Windows WebView2 or Linux system dependencies. A fully disconnected first setup on a clean computer is not yet qualified.</p></div></details>
         <details><summary><span data-i18n="faq.install.question">What should I know before installing?</span><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary><div class="faq-answer"><p data-i18n="faq.install.answer">The Windows beta was tested on Windows 11 x64 and needs Microsoft Edge WebView2. Mac packages are separate for Apple silicon and Intel; they target macOS 14 or later, with native startup checks on macOS 15, not full platform qualification. Linux testing targets Ubuntu 24.04 x64 and requires GTK3/WebKitGTK 4.1 dependencies.</p><p>Windows and Linux packages are unsigned; Mac builds use ad-hoc signatures and are unnotarized. Read the <a href="https://github.com/1hubengineering/afaan-oromo-bible-releases/blob/main/INSTALLATION.md">installation instructions</a> and <a href="https://github.com/1hubengineering/afaan-oromo-bible-releases/blob/main/TESTING_GUIDE.md">platform testing guide</a> before installing. Checksums help detect changed files; they do not authenticate the publisher.</p></div></details>
@@ -224,24 +217,20 @@
         <details><summary><span data-i18n="faq.records.question">Where do my notes and bookmarks live?</span><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary><div class="faq-answer"><p data-i18n="faq.records.answer">Personal records are stored on your computer, separately from the bundled Scripture libraries. Core features do not require an account or a hosted app backend. There is no cloud sync. Exported notes and backups can contain private writing, so store and share them thoughtfully. Uninstalling may leave personal data and exported files behind.</p><p>More detail is available in the <a href="https://github.com/1hubengineering/afaan-oromo-bible-releases/blob/main/PRIVACY.md">privacy notice</a>.</p></div></details>
         <details><summary><span data-i18n="faq.backups.question">How do I keep a backup of my study?</span><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary><div class="faq-answer"><p data-i18n="faq.backups.answer">Use the app’s personal-data backup to export your records as JSON, and keep an independent copy. You can also export individual notes as PDF, Word or Markdown; a note export is different from a full personal-data backup. Restoring a backup replaces current personal records after validation and confirmation, so export your current records first. Compatibility across beta versions is not guaranteed.</p><p>Follow the backup and restore guidance in the <a href="https://github.com/1hubengineering/afaan-oromo-bible-releases/blob/main/USER_GUIDE.md">user guide</a>.</p></div></details>
         <details><summary><span data-i18n="faq.beta.question">What does “beta” mean for this reader?</span><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary><div class="faq-answer"><p data-i18n="faq.beta.answer">The reader is still being refined. Language and editorial review, accessibility checks, clean-computer installation and final platform qualification remain in progress. Mac and Linux builds are experimental. Expect issues and keep backups of important study records.</p><p>The <a href="https://github.com/1hubengineering/afaan-oromo-bible-releases/blob/main/BETA_NOTICE.md">beta notice</a> describes known limitations. A biblical atlas and expanded study tools are planned; they are not included in this beta, and no release date is promised.</p></div></details>
-        <details><summary><span data-i18n="faq.feedback.question">How can I report a problem or suggest an improvement?</span><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary><div class="faq-answer"><p data-i18n="faq.feedback.answer">Share a wording concern, report a bug or suggest an improvement. The feedback form opens here; you won’t need an account. If it is unavailable, email us.</p><a class="text-link" href="#feedback" data-feedback><svg class="icon" aria-hidden="true"><use href="#i-feedback"/></svg><span>Share Feedback</span></a><p data-i18n="faq.feedback.privacy">Include only what helps explain the issue. Remove personal information from screenshots, and keep private notes, complete backups and passwords out of your report. GitHub issues are public.</p><p>For a security concern, follow the <a href="https://github.com/1hubengineering/afaan-oromo-bible-releases/blob/main/SECURITY.md">security reporting instructions</a> instead.</p></div></details>
+        <details><summary><span data-i18n="faq.feedback.question">How can I report a problem or suggest an improvement?</span><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary><div class="faq-answer"><p data-i18n="faq.feedback.answer">Share a wording concern, report a bug or suggest an improvement. The feedback form opens here; you won’t need an account. If it is unavailable, email us.</p><p data-i18n="faq.feedback.privacy">Include only what helps explain the issue. Remove personal information from screenshots, and keep private notes, complete backups and passwords out of your report. GitHub issues are public.</p><p>For a security concern, follow the <a href="https://github.com/1hubengineering/afaan-oromo-bible-releases/blob/main/SECURITY.md">security reporting instructions</a> instead.</p></div></details>
       </div>
     </section>
 
     <section class="about-section container" id="about" aria-labelledby="about-title">
-      <div><a class="developer-brand" href="https://1hubengineering.com/" aria-label="AndHub Engineering"><img class="developer-logo-light" src="./assets/images/andhub-logo-light.svg" width="825" height="240" alt="" loading="lazy" decoding="async"><img class="developer-logo-dark" src="./assets/images/andhub-logo-dark.svg" width="825" height="240" alt="" loading="lazy" decoding="async"></a><p class="eyebrow" data-i18n="about.eyebrow">ABOUT THE DEVELOPERS</p><h2 id="about-title" data-i18n="about.title">About<br><em>AndHub Engineering PLC.</em></h2></div>
+      <div><a class="developer-brand" href="https://1hubengineering.com/" aria-label="AndHub Engineering"><img class="developer-logo-light" src="./assets/images/andhub-logo-light.svg" width="825" height="240" alt="" loading="lazy" decoding="async"><img class="developer-logo-dark" src="./assets/images/andhub-logo-dark.svg" width="825" height="240" alt="" loading="lazy" decoding="async"></a><p class="eyebrow" data-i18n="about.eyebrow">ABOUT THE DEVELOPERS</p><h2 id="about-title" data-i18n="about.title">About AndHub Engineering PLC</h2></div>
       <div class="about-copy"><p data-i18n="about.description">AndHub Engineering PLC develops and maintains Afaan Oromo Bible. We build software and websites, design computer systems and offer engineering advice to help people put those systems to work.</p><p data-i18n="about.mission">This reader supports offline Scripture reading and personal study. It is an independent project, with no publisher or Bible Society affiliation implied.</p><address class="about-contact">
           <a href="https://1hubengineering.com/">1hubengineering.com<svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a>
           <a href="mailto:info@1hubengineering.com">info@1hubengineering.com</a>
           <div class="contact-phones"><a href="tel:+251913231123">+251 913 231 123</a><a href="tel:+251922964576">+251 922 964 576</a></div>
           <span class="contact-location">Lebu, Addis Ababa, Ethiopia</span>
-        </address><a class="text-link" href="#feedback" data-feedback><svg class="icon" aria-hidden="true"><use href="#i-feedback"/></svg><span>Share Feedback</span></a></div>
+        </address></div>
     </section>
 
-    <section class="feedback-section container" id="feedback" aria-labelledby="feedback-title">
-      <div class="feedback-book" aria-hidden="true"><svg class="icon"><use href="#i-book"/></svg></div><div><p class="eyebrow" data-i18n="feedback.eyebrow">HELP IMPROVE THE READER</p><h2 id="feedback-title" data-i18n="feedback.title">How can we make reading easier?</h2><p data-i18n="feedback.description">Tell us about a problem or an idea. You can also flag wording for review. Your name and email are optional.</p></div><a class="button button-outline" href="#feedback" data-feedback><svg class="icon" aria-hidden="true"><use href="#i-feedback"/></svg><span>Share Feedback</span></a>
-    </section>
-    <p class="container feedback-email" data-i18n="feedback.email">Prefer email, or can’t open the form? Write to <a href="mailto:info@1hubengineering.com">info@1hubengineering.com</a>. Feedback forms need JavaScript and an internet connection.</p>
   </main>
 
   <footer class="site-footer">

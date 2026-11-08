@@ -18,10 +18,10 @@
     "benefit.editions": "Maxxansoota sadii kompiitara kee irratti",
     "benefit.local": "Qoʼannoo dhuunfaa, kompiitara kee irratti",
     "features.eyebrow": "MEESHAALEE QOʼANNOO DHUUNFAA",
-    "features.title": "Dubbicha irratti tasgabbaaʼi.<br><em>Gaaffilee kee hordofi.</em>",
+    "features.title": "Dubbisi, wal bira qabi, yaadannoo barreessi.",
     "features.summary": "Kitaaba Qulqulluu ilaalaa, caqasa barbaadi, maxxansoota wal bira qabi yookaan yaadannoo barreessi.",
     "features.read.title": "Bakka dubbistu argadhu.",
-    "features.read.description": "Jechoota, gaaleewwanii fi wabii caqasootaa interneetii malee barbaadi. Maqaalee kitaabotaa Afaan Oromoo fi boqonnaalee keessaa filadhu; buʼaawwan barbaacha kees gingilchi.",
+    "features.read.description": "Jechoota, gaaleewwanii fi wabii caqasootaa interneetii malee barbaadi. Maqaalee kitaabotaa Afaan Oromoo fi boqonnaalee keessaa filadhu; buʼaawwan barbaacha kees gingilchi. Bakka itti dhaabde siif yaadata.",
     "features.read.note": "Bakka itti dhaabde siif yaadata",
     "features.compare.title": "Wal bira qabii dubbisi.",
     "features.compare.description": "Maxxansoota kompiitara kee irratti jiran lama wal bira bani. Kitaabaa fi boqonnaa tokko hordofaa, caqasoota Afaan Oromoo fi Afaan Ingilizii wal bira qabi.",
@@ -33,19 +33,19 @@
     "features.backup.description": "Yaadannoo kee bifa PDF, Word yookaan Markdownʼn olkaaʼi. Galmeewwan dhuunfaa keetiif koppii kuusaa adda taʼe qopheeffadhu.",
     "features.backup.note": "Yaadannoowwan faayila godhanii baasuu fi koppii kuusaa galmeewwan dhuunfaa",
     "gallery.eyebrow": "CAALAATTI DHIHEENYAAN ILAALI",
-    "gallery.title": "Kitaaba beektu.<br><em>Iddoo dubbisaa kan kee.</em>",
+    "gallery.title": "Dubbisaa keessaa",
     "gallery.summary": "Gosoota halluu shan keessaa filadhu; barruu dubbisaaf siif mijatutti sirreessi. Beta kun filannoowwan Afaan Ingilizii qaba; jechoonni Afaan Oromoo sagantichaa ammallee irra deebiʼamanii ilaalamuu qabu.",
     "gallery.tabs.compare": "Wal bira qabi",
     "gallery.tabs.notes": "Yaadannoowwan dhuunfaa",
     "gallery.tabs.dark": "Dubbisa galgalaa",
     "gallery.tabs.bookmarks": "Mallattoolee dubbisaa",
-    "gallery.compare.title": "Maxxansoota lama. Iddoo itti qoʼattu.",
+    "gallery.compare.title": "Maxxansoota wal bira qabi",
     "gallery.compare.caption": "Afaan Oromoo fi KJV wal bira qabii dubbisi. Wal bira qabuun kitaabaa fi boqonnaa irratti hundaaʼa; lakkoofsi caqasootaa fi jechoonni maxxansoota gidduutti garaagarummaa qabaachuu dandaʼu.",
-    "gallery.notes.title": "Yaada keetiif iddoo kenni.",
+    "gallery.notes.title": "Yaadannoowwan dhuunfaa",
     "gallery.notes.caption": "Caqasni mulʼachaa utuu jiruu yaadannoo barreessi, bifa isaas sirreessi. Yaadannoon as mulʼatu fakkeenya agarsiisaati; galmee dhuunfaa miti.",
-    "gallery.dark.title": "Bifa fuulaa yeroo keetiif mijeessi.",
+    "gallery.dark.title": "Dubbisa galgalaa",
     "gallery.dark.caption": "Gosoota halluu shan; tokkoon tokkoon isaanii bifa ifaa, dukkanaaʼaa yookaan bifa sirna kompiitaraa hordofuu ni deeggaru. Hamma barruu Kitaaba Qulqulluu, fageenya sararootaa fi balʼina dubbisaa siif mijatutti sirreessi.",
-    "gallery.bookmarks.title": "Caqasa si tuqeetti deebiʼi.",
+    "gallery.bookmarks.title": "Mallattoolee dubbisaa",
     "gallery.bookmarks.caption": "Caqasoota olkaaʼatteef maqaa siif galu kenni; yeroo barbaaddutti itti deebiʼi. Maqaaleen mallattoolee dubbisaa as mulʼatan fakkeenya agarsiisaati.",
     "gallery.provenance": "Suuraalee dhugaa sagantaa Windows beta.8, piroofaayilii agarsiisaa adda baafame keessatti kaafaman.",
     "editions.eyebrow": "KITAABA QULQULLUU DUBBISI, MAXXANSOOTA QOʼADHU.",
@@ -61,7 +61,7 @@
     "feedback.title": "Dubbisa akkamitti salphisuu dandeenya?",
     "feedback.description": "Rakkoo yookaan yaada kee nuuf qoodi. Jechoota irra deebiʼamanii ilaalamuu qabanis nu beeksisi. Maqaa fi imeelii galchuun dirqama miti.",
     "about.eyebrow": "WAAʼEE WARREEN SAGANTICHA HOJJETAN",
-    "about.title": "Waaʼee<br><em>AndHub Engineering PLC.</em>",
+    "about.title": "Waaʼee AndHub Engineering PLC",
     "about.description": "AndHub Engineering PLC Afaan Oromo Bible ni qopheessa, ni kunuunsa. Sooftiweerii fi marsariitiiwwan ni hojjenna; sirnoota kompiitaraa ni dizaayina goona; sirnoota kana hojiirra oolchuufis gorsa injinariingii ni kennina.",
     "about.mission": "Dubbisaan kun Kitaaba Qulqulluu interneetii malee dubbisuu fi qoʼannoo dhuunfaa ni deeggera. Pirojektii of dandaʼe dha; maxxansaa yookaan Waldaa Kitaaba Qulqulluu kamiyyuu bakka hin buʼu.",
     "footer.tagline": "Kitaaba Qulqulluu afaan keetiin.<br>Iddoo qoʼannoo keetiif.",
@@ -69,7 +69,7 @@
     "footer.sitePrivacy": "Marsariitiin kun tajaajila xiinxala fayyadamaa yookaan hordoffii hin dabalu. Filannoon bifa fuulaa kee biraawuzara kana keessatti kuufama. Fuulli fi faayiloonni buufaman GitHub irratti argamu. Yaada kennuuf unka banuun Tally waliin si qunnamsiisa; odeeffannoon akka yaadaatti ergamu kan ati filattee galchitu qofa dha.",
     "navigation.about": "Waaʼee keenya",
     "downloads.eyebrow": "DUBBISAA KANA OF BIRA QABAADHU",
-    "downloads.title": "Kitaaba Qulqulluutiif iddoo xiqqoo.<br><em>Kompiitara kee irratti.</em>",
+    "downloads.title": "Beta buufadhu",
     "downloads.description": "0.1.0-beta.8 yaaluuf sirna kompiitara keetii filadhu.<br>Maxxansoonni kun yaaliif qophaaʼan. Yaadni kee waan itti aanu fooyyessuu qabnu murteessuuf nu gargaara.",
     "downloads.windows.status": "Beta Windows",
     "downloads.windows.description": "Kompiitaroota x64 tiif · Faayila feʼumsaa",
@@ -131,7 +131,8 @@
     "dialog.ready": "Unki qophaaʼeera. Maqaa fi imeelii galchuun dirqama miti.",
     "dialog.slow": "Unki banuuf yeroo fudhachaa jira. Eeguu, irra deebiʼanii yaaluu yookaan fuula haaraa irratti banuu dandeessa.",
     "dialog.failed": "Unki banamuu hin dandeenye. Irra deebiʼii yaali yookaan fuula haaraa irratti bani.",
-    "dialog.frameTitle": "Unka yaadaa Afaan Oromo Bible, Afaan Oromootiin"
+    "dialog.frameTitle": "Unka yaadaa Afaan Oromo Bible, Afaan Oromootiin",
+    "editions.summary": "Maxxansoota keessatti argaman: gaz 2022 · OOCS 2024 · KJV"
   },
   "exact": {
     "Scripture in Afaan Oromo. A quiet space to study.": "Kitaaba Qulqulluu Afaan Oromootiin. Iddoo tasgabbaaʼaa itti qoʼattu.",
@@ -202,7 +203,9 @@
     "Close feedback": "Unka yaadaa cufi",
     "Feedback privacy policies": "Imaammata iccitii yaadaa",
     "Tally privacy": "Iccitii Tally",
-    "Google privacy": "Iccitii Google"
+    "Google privacy": "Iccitii Google",
+    "Page language": "Afaan fuula kanaa",
+    "Each of the five app palettes supports light, dark or system appearance. Scripture size, spacing and reading width are adjustable.": "Gosoonni halluu sagantichaa shanan bifa ifaa, dukkanaa yookaan sirnaa qabu. Hamma barruu, fageenya sararootaa fi balʼina dubbisaa sirreessuu dandeessa."
   },
   "notes": [
     "Apply exact as full text-node, full innerHTML, or full attribute-value matches; never replace substrings globally. Product name Afaan Oromo Bible, official Biblica edition titles, palette names and platform names are intentionally preserved.",
@@ -216,6 +219,6 @@
     "Terminology coordinated with the other translator: buufadhu (download), yaadannoowwan (notes), mallattoolee dubbisaa (bookmarks), koppii kuusaa (backup), feʼuu (install), maxxansa (edition/release), caqasa (verse/passage), wal bira qabuu (compare). Modifier apostrophe U+02BC is used consistently in translated text.",
     "Technical terms with no universal everyday equivalent are explained rather than treated as security guarantees: koodota sakattaʼiinsaa (checksums), mallattoo dijitaalaa (digital signature), mirkaneessa Apple (notarization), and furtuu maxxansaa (release key). The English technical term is retained in parentheses in relevant warnings.",
     "All requested downloads and FAQ content is translated. No independent fluent editorial review has been performed; a native-speaking editor can refine local terminology and tone before a wider launch.",
-    "Feedback and revised copy are editorial drafts, not independently fluent-reviewed. Keep om.copyReviewed=false in feedback-config.js until a fluent reviewer approves the site and Tally form. Tally system validation currently has no Oromo locale."
+    "Feedback and revised copy have not been independently fluent-reviewed. Both real forms are published and explicitly enabled at the owner's request; enabled is an availability switch, not a review certificate. Arrange fluent review of the form and new shortened headings. Tally system validation currently has no Oromo locale."
   ]
 }

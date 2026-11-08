@@ -1,35 +1,33 @@
 # Feedback setup: Tally and private Google Sheets
 
-Two real forms have now been created through the connected Tally plugin. The [English form](https://tally.so/r/vXrgVQ) is published, and the [Afaan Oromoo form](https://tally.so/forms/KpeOA7/edit) is a draft pending fluent review. Both have 19 questions, five conditional category rules, optional name/email, optional correction/reproduction/screenshot fields, privacy notices and a custom thank-you page. The public form IDs are configured locally; Oromo embedding remains gated by `copyReviewed: false`.
+Both real language forms are now published and enabled at the owner's request: [English](https://tally.so/r/vXrgVQ) and [Afaan Oromoo](https://tally.so/r/KpeOA7). They each have 19 questions, five conditional category rules, optional contact details, privacy and wording-review notices, and translated submit/confirmation text. Website buttons open only the form for the current language. All five categories were checked in each real form on mobile and desktop. The Oromo wording is complete but has **not been certified by a fluent reviewer**; keep that review on the editorial checklist. Tally's system-message limitation is documented below.
 
-Google Drive was used to create **Afaan Oromo Bible — Private Feedback Review**. The owner then authorized Tally's English Google Sheets connection. **English synchronization is verified:** the earlier setup test was imported, and a fresh test submitted after connection arrived automatically with matching fields. Tally created the raw tab `Afaan Oromo Bible — Share Feedback (English)`. `Feedback EN` is a live formula view of that raw tab, with UTC timestamp formatting; `Feedback OM` is reserved for the future Oromo connection. `Setup`, `Field Map` and the empty reviewer-owned `Review` tab explain the structure. Drive metadata still confirms `shared: false` and owner-only permission. The private spreadsheet URL is deliberately absent from website files and this public guide; it was shared only in the owner's chat.
+English delivery to **Afaan Oromo Bible — Private Feedback Review** was verified previously using an imported setup test and a fresh submission after connection. Tally's raw destination tab is `Afaan Oromo Bible — Share Feedback (English)`; `Feedback EN` is a live formula view. Preserve that raw tab and the formula. `Feedback OM` is reserved for Oromo. The private workbook URL and credentials are deliberately absent from public files.
 
-Two real, clearly labeled English setup tests were accepted through the website embed, covering general feedback and a website issue with no name/email. The first was imported from Tally; the second demonstrated new automatic delivery. All five English branches were exercised on desktop/light and mobile/dark. No user report was fabricated, and no response row was inserted to simulate integration success. The website is now live at [bible.1hubengineering.com](https://bible.1hubengineering.com/) after [successful Pages deployment](https://github.com/1hubengineering/afaan-oromo-bible-releases/actions/runs/42495675061). Oromo fluent review, publication and its own Sheets connection remain open; the live Oromo page uses the translated email fallback.
+**Oromo Sheets delivery still needs the owner's account authorization.** Publishing or enabling a form does not create a Google Sheets connection. The Tally plugin cannot save that authorization. The website's confirmation indicates Tally accepted the submission; it does not assert Google Sheets delivery. Reviewer-owned status, priority, assignee and resolution fields are not automatically populated by Tally.
 
-## Activate the integration
+## Configuration and remaining setup
 
-1. Use the existing [published English form](https://tally.so/r/vXrgVQ), editing it at `https://tally.so/forms/vXrgVQ/edit`. It has no password, respondent login, payment or submission limit. Partial submissions, save-for-later and completion redirects are off. Do not create a duplicate.
-2. Use the existing [Afaan Oromoo draft](https://tally.so/forms/KpeOA7/edit). Its editable questions, answer options, help text, submit label and thank-you copy are translated, with equivalent types and conditions. Do not create a duplicate.
-3. Have a fluent Afaan Oromoo editor review the website catalog, feedback dialog and the actual form, including error recovery and translation terminology. The supplied Oromo wording has been checked for completeness and consistency, **not certified by a fluent reviewer**.
-4. The English connection is complete and verified. After Oromo review and publication, connect its form to the same private workbook as described below. Keep restricted sharing and check attachment accessibility before relying on screenshot delivery.
-5. The real IDs are already in `website/feedback-config.js`: English `vXrgVQ`, Oromo `KpeOA7`. If replacing a form later, paste only its real ID, with no URL, spaces or query parameters. These IDs are intentionally public; never put Google credentials or spreadsheet URLs in this file.
-6. Publish the Oromo form after fluent review, then set `om.copyReviewed` to `true` only after that review and acceptance of the system-message limitation below. `en.copyReviewed` is already `true`. An invalid/empty ID, missing config or false review flag keeps that language’s embed unavailable; it never silently substitutes the other language.
-7. Complete the live tests at the end, then deploy through the existing Pages workflow. Activate both languages together for a complete bilingual launch. Public IDs are the only account-specific values needed in website source.
-
-Current configuration (real IDs):
+1. Use the existing forms; do not create duplicates. Edit [English](https://tally.so/forms/vXrgVQ/edit) or [Afaan Oromoo](https://tally.so/forms/KpeOA7/edit). Neither requires a respondent login, payment or password. Partial submissions, save-for-later and completion redirects are off.
+2. In the Oromo editor choose **Integrations → Google Sheets → Connect**, authorize Google, and select the same private workbook. Enable **Export existing submissions**. Tally may create a new raw tab rather than use `Feedback OM`; record the actual destination in the private `Setup` tab and use `Feedback OM` as a formula view if useful. Keep sharing restricted.
+3. Verify a clearly labeled Oromo setup test arrives with matching submission ID, timestamp, category and comment. Leave name/email blank. Verify attachment access separately before relying on screenshot delivery.
+4. Arrange fluent-speaker review of the website catalog, dialog, questions, conditional instructions, confirmation and new shortened headings. This remains outstanding; publication is not a review certificate.
+5. Only public IDs and an explicit availability switch belong in `website/feedback-config.js`. `enabled: false`, a missing configuration or an invalid ID shows the translated email fallback; it never substitutes another language's form. Do not put spreadsheet links, API keys or credentials there.
 
 ```js
 window.AOB_FEEDBACK = Object.freeze({
-  en: { formId: 'vXrgVQ', copyReviewed: true },
-  om: { formId: 'KpeOA7', copyReviewed: false } // Draft; publish and review before enabling.
+  en: { formId: 'vXrgVQ', enabled: true },
+  om: { formId: 'KpeOA7', enabled: true }
 });
 ```
+
+The form colours match the website's warm cream, cedar and amber palette. Supported free structured theme options set a fixed light surface inside either website appearance; no paid custom CSS, third-party font, automatic data forwarding or new service has been added.
 
 ## Form structure and copy
 
 Use one form per language, with a single required category choice, conditional detail questions and a short optional contact section. Keep it on one page if practical. Ask for details only after a category is chosen. Name and email remain optional in every branch. Turn off partial-submission collection, third-party analytics, tracking pixels and respondent email collection by default. Do not enable a redirect after submission.
 
-| Element | English | Afaan Oromoo draft |
+| Element | English | Afaan Oromoo (fluent review pending) |
 | --- | --- | --- |
 | Form heading | Share Feedback | Yaada kee nuuf qoodi |
 | Introduction | Tell us what happened or what would help. Choose a topic to see the relevant questions. Your name and email are optional. | Waan mudate yookaan waan si gargaaru nutti himi. Gaaffilee si ilaallatan arguuf mata duree filadhu. Maqaa fi imeelii galchuun dirqama miti. |
@@ -52,7 +50,7 @@ Copy the dialog’s privacy and wording-review notices into each form too, so vi
 
 All fields below are required **only while their branch is selected**, except those explicitly marked optional. The plugin's supported setup uses one SHOW rule per category, targeting the entire relevant questions. SHOW establishes the hidden default; hidden questions are not required. Essential questions retain their required setting when shown, and the five optional fields are explicitly optional. Do not add reverse HIDE rules as an else: Tally evaluates SHOW rules without an if/else pair. When reviewing exports, use the selected category to identify relevant columns; do not treat retained answers from an abandoned branch as part of the active report.
 
-| Show when | Question / field type | English | Afaan Oromoo draft |
+| Show when | Question / field type | English | Afaan Oromoo (fluent review pending) |
 | --- | --- | --- | --- |
 | Translation | Edition / dropdown | Which Bible edition? | Maxxansa Kitaaba Qulqulluu kam? |
 | Translation | Book / short text | Book | Kitaaba |
@@ -79,7 +77,7 @@ OS options: Windows, macOS, Linux, Other / Kan biraa, Not sure / Hin beeku. The 
 
 Use separate forms so questions and confirmations remain coherent in the selected website language. Tally’s current [system-message language list](https://tally.so/help/supported-languages) does not include Afaan Oromoo. Editable content can be Oromo, but validation, closed-form text and some upload controls may remain English. Select English for those built-in messages and retain the Oromo dialog notice explaining this. If English system messages are unacceptable, leave Oromo activation gated and request Oromo support from Tally; do not describe the service as fully localized.
 
-Use Tally’s supported editor customization for forest-green buttons, readable body type and restrained headings. The website dialog follows the site’s appearance. Its cross-origin form uses a deliberately neutral white surface in both themes to keep Tally’s own text legible. The site cannot recolor Tally’s internal controls with CSS. A matching dark form depends on Tally’s available customization and must be checked in the actual account; do not add unverified theme parameters, custom-domain services or paid features as hidden prerequisites. Tally branding may remain. No additional font, widget script, translation service or backend is needed.
+Both forms use supported theme settings for cedar buttons, a warm cream background and readable dark text. The website dialog follows the site's light/dark preference; the cross-origin form keeps its fixed light palette in either appearance. The site cannot recolor Tally's internal controls with CSS. Tally branding remains. No paid customization, additional font, widget script, translation service or backend is needed.
 
 ## Google Sheets: private reporting
 
@@ -111,27 +109,27 @@ Decide a retention period and reviewer access within the company before launch; 
 
 ## Implementation and maintenance
 
-- `website/feedback-config.js`: public IDs and review gate only.
+- `website/feedback-config.js`: public IDs and explicit `enabled` availability switches only. Publication does not certify fluent review or a Sheets connection.
 - `website/feedback.js`: native modal, lazy direct iframe embed, 15-second slow state, retry, direct link and trusted Tally lifecycle events. An iframe load alone never means successful submission or even a working form. A late `Tally.FormLoaded` recovers from the slow state.
 - `website/index.html` and catalog: static bilingual shell, privacy, confirmation and unconfigured fallback. Regenerate `website/om/index.html` with `scripts/localize_site.py` after copy changes.
 - Direct Tally iframe URLs use documented embed options `hideTitle=1` and `alignLeft=1`. The widget script is unnecessary for the fixed-height embed; omitting it also avoids its automatic forwarding of host query parameters. Tally itself sends the documented postMessage lifecycle events. Check these against the real forms before launch.
-- The browser’s native dialog provides modality and background inertness. Opening focuses Close, closing restores the trigger (the menu toggle for mobile navigation). Escape closes from the website shell. Chromium does not forward Escape from inside a cross-origin iframe to the parent dialog; the transport check verifies Shift+Tab can return to Close, then Escape works. The dialog explains the keyboard alternative, and Close remains visible in the sticky header. Repeat this check inside both real forms, whose own controls may consume keys. Clicking the backdrop does not discard a report. Closing warns that unfinished work may be lost; the website does not autosave drafts.
-- JavaScript-disabled/unsupported-dialog visitors reach the static feedback section and company email. Direct form fallback opens a new tab and keeps the website open.
+- The browser’s native dialog provides modality and background inertness. Opening focuses Close; closing restores the CTA button. Escape closes from the website shell. Chromium does not forward Escape from inside a cross-origin iframe to the parent dialog; the transport check verifies Shift+Tab can return to Close, then Escape works. The dialog explains the keyboard alternative, and Close remains visible in the sticky header. Repeat this check inside both real forms, whose own controls may consume keys. Clicking the backdrop does not discard a report. Closing warns that unfinished work may be lost; the website does not autosave drafts.
+- JavaScript-disabled/unsupported-dialog visitors reach the feedback area within Help and the company email. Direct form fallback opens a new tab and keeps the website open.
 - Relative local script/assets/language paths and the explicit preparation allowlist preserve repository-subpath hosting. No release asset, binary or application code is changed.
 
-The locally inspected licensed `dialog-dialog-standard-1` uses React/shadcn components and is unsuitable for this dependency-free public HTML site. Its header/description/action structure informed the dialog. No proprietary source was copied into the public repository. The existing semantic native image dialog pattern is reused. The official [embed guide](https://tally.so/help/embed-your-form), [event contract](https://developers.tally.so/widgets/events) and [conditional logic guide](https://tally.so/help/conditional-form-logic) were consulted on 8 November 2026.
+The locally inspected licensed `dialog-dialog-standard-1` and `button-button-standard-1` use React/shadcn components and are unsuitable for this dependency-free public HTML site. Their header/action structure and button hierarchy informed the semantic native dialogs and outlined controls. No proprietary source was copied into the public repository. The official [embed guide](https://tally.so/help/embed-your-form), [event contract](https://developers.tally.so/widgets/events) and [conditional logic guide](https://tally.so/help/conditional-form-logic) were consulted on 8 November 2026; [system-language support](https://tally.so/help/supported-languages) was rechecked on 9 November. The individual dialog catalog URL could not be fetched during this refinement; the cached licensed source was available and inspected.
 
 ## Launch checklist
 
-- [ ] Real English and Oromo forms published; all five conditional paths tested, including switching categories and optional contacts.
-- [ ] Fluent review completed and `om.copyReviewed` enabled; English Tally system-message limitation accepted and disclosed.
-- [ ] Actual public form IDs entered; no spreadsheet URL, key or credential in source.
+- [x] Real English and Oromo forms published; all five conditional paths tested, including switching categories. Contact fields remain optional.
+- [ ] Fluent review completed. The English Tally system-message limitation is disclosed in the Oromo dialog and form.
+- [x] Actual public form IDs entered and enabled; no spreadsheet URL, key or credential in source.
 - [ ] Both private Google Sheets connections saved; response rows and attachment access verified.
 - [ ] Company reviewer access and retention process agreed; privacy and translation-review notices present in both forms.
 - [ ] On real forms, test successful submission, thank-you content, parent confirmation and exactly one Sheet row per submission. Do not treat local transport fixtures as this evidence.
 - [ ] Live iframe keyboard entry/exit, Escape, tab order, screen reader, mobile uploads, zoom, light/dark contrast and conditional validation checked.
 - [ ] Block Tally or disconnect internet: loading state, delayed state, retry and direct link remain understandable; closing restores focus.
 - [ ] Run localization, metadata and artifact checks from README; inspect root and repository-path previews.
-- [ ] Review website diff; merge/deploy with the existing Pages workflow and verify the returned deployment plus both live language URLs. No deployment was performed by this local change.
+- [ ] Review website diff; deploy with the existing Pages workflow and verify both live language URLs. See the latest validation entry for deployment status.
 
 Local browser checks and outstanding integration evidence are recorded in [VALIDATION.md](VALIDATION.md).

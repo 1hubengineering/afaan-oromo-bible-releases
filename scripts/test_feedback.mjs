@@ -31,7 +31,7 @@ try {
   for (const locale of ['en', 'om']) for (const theme of ['light', 'dark']) for (const width of widths) {
     const context = await browser.newContext({ viewport: { width, height: width === 844 ? 390 : 900 }, colorScheme: theme, reducedMotion: 'reduce' });
     // Keep unavailable-state QA independent of the real account configuration.
-    await context.route('**/feedback-config.js', route => route.fulfill({ contentType: 'text/javascript', body: "window.AOB_FEEDBACK={en:{formId:'',copyReviewed:true},om:{formId:'',copyReviewed:false}};" }));
+    await context.route('**/feedback-config.js', route => route.fulfill({ contentType: 'text/javascript', body: "window.AOB_FEEDBACK={en:{formId:'',enabled:true},om:{formId:'',enabled:false}};" }));
     const page = await context.newPage();
     const errors = [];
     const tallyRequests = [];
@@ -41,11 +41,12 @@ try {
     assert.deepEqual(tallyRequests, []);
     assert.equal(await page.locator('html').getAttribute('data-theme'), theme);
     const links = page.locator('[data-feedback]');
-    assert.equal(await links.count(), 6);
-    // Every CTA opens the same dialog, including the mobile menu's hidden link.
+    assert.equal(await links.count(), 3);
+    assert.equal(await page.locator('.site-nav [data-feedback], .site-nav a[href="#downloads"]').count(), 0);
+    assert.equal(await page.locator('.language-option').allTextContents().then(items => items.map(s => s.trim()).join('/')), 'EN/OR');
+    await expect(page.locator('.language-option[aria-current="page"]')).toHaveAttribute('lang', locale);
+    // All three visible CTA buttons open the same localized dialog.
     for (let i = 0; i < await links.count(); i++) {
-      if (i === 0 && width <= 1279) await page.locator('.menu-toggle').click();
-      if (i === 3) await page.locator('.faq-list details').last().locator('summary').click();
       await links.nth(i).click();
       assert.equal(await page.locator('.feedback-dialog').isVisible(), true);
       assert.equal(await page.locator('.feedback-unavailable').isVisible(), true);
@@ -64,22 +65,33 @@ try {
       await page.keyboard.press('Escape');
       assert.equal(await page.locator('.feedback-dialog').isVisible(), false);
       await expect(page.locator('body')).not.toHaveClass(/dialog-open/);
-      const returnTarget = i === 0 && width <= 1279 ? page.locator('.menu-toggle') : links.nth(i);
-      await expect(returnTarget).toBeFocused();
+      await expect(links.nth(i)).toBeFocused();
     }
     assert.deepEqual(tallyRequests, []);
     if (width <= 1279) {
       await page.locator('.menu-toggle').click();
-      await page.locator('.site-nav a[href="#downloads"]').click();
+      await page.locator('.site-nav a[href="#screenshots"]').click();
       assert.equal(await page.locator('.site-nav').isVisible(), false);
-      assert.equal(await page.evaluate(() => document.activeElement.id), 'downloads');
+      assert.equal(await page.evaluate(() => document.activeElement.id), 'screenshots');
     }
-    const tabs = page.getByRole('tab');
-    await tabs.first().focus();
-    await expect(tabs.first()).toBeFocused();
-    for (let i = 0; i < 4; i++) {
-      if (i) await page.keyboard.press('ArrowRight');
-      await expect(tabs.nth(i)).toHaveAttribute('aria-selected', 'true');
+    assert.equal(await page.getByRole('tab').count(), 0);
+    assert.equal(await page.locator('.gallery-panel:visible').count(), 4);
+    const positions = await page.locator('.gallery-panel').evaluateAll(items => items.map(el => el.getBoundingClientRect().top));
+    if (width >= 1024) assert.equal(new Set(positions).size, 1);
+    const hero = await page.locator('.hero').evaluate(el => {
+      const text = el.querySelector('.hero-copy').getBoundingClientRect();
+      const image = el.querySelector('.hero-figure').getBoundingClientRect();
+      return { sideBySide: image.left > text.left, stacked: image.top >= text.bottom, imageWidth: image.width };
+    });
+    assert.equal(width >= 960 ? hero.sideBySide : hero.stacked, true);
+    assert.ok(hero.imageWidth <= 640);
+    for (const link of await page.locator('.gallery-panel [data-lightbox]').all()) {
+      await link.focus();
+      await page.keyboard.press('Enter');
+      await expect(page.locator('.image-dialog')).toBeVisible();
+      await expect(page.locator('.dialog-close')).toBeFocused();
+      await page.keyboard.press('Escape');
+      await expect(link).toBeFocused();
     }
     await page.locator('#panel-bookmarks [data-lightbox]').click();
     await page.keyboard.press('Escape');
@@ -98,7 +110,7 @@ try {
       await page.locator('.feedback-dialog').screenshot({ path: path.join(output, `${locale}-${theme}-${width}-dialog.png`) });
     }
     assert.deepEqual(errors, []);
-    results.push({ locale, theme, width, ctas: 6, unconfigured: true, focusReturn: true, axeViolations: 0 });
+    results.push({ locale, theme, width, ctas: 3, unconfigured: true, galleryVisible: 4, heroLayout: true, focusReturn: true, axeViolations: 0 });
     console.log(JSON.stringify(results.at(-1)));
     await context.close();
   }
@@ -107,7 +119,7 @@ try {
   // form, submission, localization or Sheets connection works.
   for (const locale of ['en', 'om']) {
     const context = await browser.newContext({ viewport: { width: 375, height: 820 }, colorScheme: 'dark', reducedMotion: 'reduce' });
-    await context.route('**/feedback-config.js', route => route.fulfill({ contentType: 'text/javascript', body: "window.AOB_FEEDBACK={en:{formId:'TESTEN',copyReviewed:true},om:{formId:'TESTOM',copyReviewed:true}};" }));
+    await context.route('**/feedback-config.js', route => route.fulfill({ contentType: 'text/javascript', body: "window.AOB_FEEDBACK={en:{formId:'TESTEN',enabled:true},om:{formId:'TESTOM',enabled:true}};" }));
     await context.route('https://tally.so/embed/**', route => route.fulfill({ contentType: 'text/html', body: delay }));
     const page = await context.newPage();
     await page.clock.install();

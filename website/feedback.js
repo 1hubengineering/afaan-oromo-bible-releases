@@ -4,7 +4,7 @@
   if (!dialog || typeof dialog.showModal !== 'function') return;
   const locale = document.documentElement.lang === 'om' ? 'om' : 'en';
   const config = window.AOB_FEEDBACK?.[locale];
-  const configured = Boolean(config?.copyReviewed === true && typeof config.formId === 'string' && /^[a-zA-Z0-9]+$/.test(config.formId));
+  const configured = Boolean(config?.enabled === true && typeof config.formId === 'string' && /^[a-zA-Z0-9]+$/.test(config.formId));
   const host = dialog.querySelector('.feedback-embed');
   const status = dialog.querySelector('.feedback-status');
   const unavailable = dialog.querySelector('.feedback-unavailable');

@@ -1,9 +1,8 @@
-/* Public Tally form IDs only. Never add a Google Sheet URL or credentials here.
- * Setup and language-review checklist: website-docs/FEEDBACK.md
- * English is published. Oromo remains a Tally draft pending fluent review;
- * keep its review gate false until reviewed and published. Sheets is separate.
+/* Public Tally IDs only; never add a private Sheet URL or credentials.
+ * Both forms are published at the owner's request. Fluent Oromo review and
+ * its separate Google Sheets authorization remain outstanding; see FEEDBACK.md.
  */
 window.AOB_FEEDBACK = Object.freeze({
-  en: { formId: 'vXrgVQ', copyReviewed: true },
-  om: { formId: 'KpeOA7', copyReviewed: false }
+  en: { formId: 'vXrgVQ', enabled: true },
+  om: { formId: 'KpeOA7', enabled: true }
 });

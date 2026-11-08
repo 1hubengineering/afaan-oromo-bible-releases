@@ -18,7 +18,7 @@
     const label = theme === 'dark' ? labels.light : labels.dark;
     themeButton.setAttribute('aria-label', label);
     themeButton.title = label;
-    document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#121e19' : '#f8f6ef';
+    document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#211b17' : '#fbf5e9';
   }
   setTheme(root.dataset.theme || (systemTheme.matches ? 'dark' : 'light'));
   themeButton.hidden = false;
@@ -71,33 +71,6 @@
   });
   document.addEventListener('click', event => {
     if (menuOpen && !event.target.closest('.header-inner')) setMenu(false);
-  });
-
-  const tablist = document.querySelector('.gallery-tabs');
-  const tabs = Array.from(tablist.querySelectorAll('[role="tab"]'));
-  const panels = tabs.map(tab => document.getElementById(tab.getAttribute('aria-controls')));
-  function selectTab(index, focus = false) {
-    tabs.forEach((tab, n) => {
-      const active = n === index;
-      tab.setAttribute('aria-selected', String(active));
-      tab.tabIndex = active ? 0 : -1;
-      panels[n].hidden = !active;
-    });
-    if (focus) tabs[index].focus();
-  }
-  panels.forEach(panel => { panel.setAttribute('role', 'tabpanel'); panel.tabIndex = 0; });
-  tablist.hidden = false;
-  selectTab(0);
-  tabs.forEach((tab, index) => {
-    tab.addEventListener('click', () => selectTab(index));
-    tab.addEventListener('keydown', event => {
-      let next;
-      if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
-      if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
-      if (event.key === 'Home') next = 0;
-      if (event.key === 'End') next = tabs.length - 1;
-      if (next !== undefined) { event.preventDefault(); selectTab(next, true); }
-    });
   });
 
   const dialog = document.querySelector('.image-dialog');

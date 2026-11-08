@@ -1,5 +1,7 @@
 # Afaan Oromo Bible
 
+[Visit the website](https://1hubengineering.github.io/afaan-oromo-bible-releases/) · [Afaan Oromoo](https://1hubengineering.github.io/afaan-oromo-bible-releases/om/)
+
 An independent desktop Bible reader with offline Scripture, search and personal study tools.
 
 **Public beta. Recommended Windows version: 0.1.0-beta.8. Experimental Mac and Ubuntu downloads are available for testing.** These are development builds, not the final V1 release. Back up useful notes before installing or changing versions.

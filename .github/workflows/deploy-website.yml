@@ -1,0 +1,85 @@
+name: Deploy website to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'website/**'
+      - 'scripts/prepare_site.py'
+      - 'scripts/check_site.py'
+      - 'scripts/localize_site.py'
+      - 'website-docs/oromo-translations.json'
+      - '.github/workflows/deploy-website.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'website/**'
+      - 'scripts/prepare_site.py'
+      - 'scripts/check_site.py'
+      - 'scripts/localize_site.py'
+      - 'website-docs/oromo-translations.json'
+      - '.github/workflows/deploy-website.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: website-pages-${{ github.event_name == 'pull_request' && github.ref || 'production' }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  build:
+    name: Validate and package the static website
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      pages: read
+    steps:
+      - name: Check out public website files
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+
+      # Enable Settings → Pages → Source: GitHub Actions before the first deployment.
+      # PRs only validate; they do not need Pages configured and never deploy.
+      - name: Read the configured Pages URL
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        id: pages
+        uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
+
+      - name: Check the committed Afaan Oromo page
+        run: python3 scripts/localize_site.py --check
+
+      - name: Stage only the website
+        env:
+          SITE_URL: ${{ steps.pages.outputs.base_url || 'https://1hubengineering.github.io/afaan-oromo-bible-releases/' }}
+        run: python3 scripts/prepare_site.py --site-url "$SITE_URL"
+
+      - name: Check paths, assets, metadata and release links
+        run: python3 scripts/check_site.py _site
+
+      - name: Upload the website artifact
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
+        with:
+          path: _site
+          retention-days: 1
+
+  deploy:
+    name: Publish the validated website
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy the website artifact
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4

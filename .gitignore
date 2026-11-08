@@ -8,3 +8,9 @@
 *.sqlite
 *.db
 *.backup.json
+
+# Generated website staging and local QA
+_site/
+_preview/
+__pycache__/
+*.py[cod]
